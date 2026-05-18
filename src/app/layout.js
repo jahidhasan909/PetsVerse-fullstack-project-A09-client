@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${fredoka.className}  h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full  flex flex-col">
         <Navbar></Navbar>
         <main className=" grow">{children}</main>
 
