@@ -4,6 +4,7 @@ import { Link, Button, Avatar, Spinner } from "@heroui/react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
+import {Sun} from '@gravity-ui/icons';
 
 
 
@@ -79,15 +80,6 @@ export function Navbar() {
                             <Link className={pathname === '/profile' ? 'py-2 text-[#eb7a09] no-underline font-bold text-[12px]' : 'py-2 no-underline text-white  font-semibold text-[12px]'} href={'/allpets'}> All Pets</Link>
 
                         </div>
-                        {/* <div className="">
-
-                            <Link className={pathname === '/destination' ? 'py-2  text-[#b9876e] font-bold text-[12px]' : 'py-2 no-underline text-neutral-400 text-[12px] font-semibold'} href={'/myrequests'}>My Requests</Link>
-
-                        </div>
-                        <div className="">
-                            <Link className={pathname === '/mybooking' ? 'py-2  text-[#b9876e] font-bold text-[12px]' : 'py-2 no-underline text-neutral-400 font-semibold text-[12px]'} href={'/addpet'}>Add Pet</Link>
-
-                        </div> */}
                     
                     </div>
 
@@ -97,6 +89,9 @@ export function Navbar() {
 
 
                     <ul className=" items-center gap-3 flex">
+                        <li className="py-3 px-3 rounded-full bg-white/30 border border-white/30 text-white">
+                           <Sun/>
+                        </li>
                        <li><Link className={'no-underline py-3 px-5 rounded-full bg-white/30 border border-white/30 text-white'} href="/login">Log In</Link></li>
                     </ul>
                 </header>
