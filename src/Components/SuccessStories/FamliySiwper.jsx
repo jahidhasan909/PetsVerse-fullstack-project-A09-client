@@ -11,37 +11,37 @@ import Image from "next/image";
 const MomentSlider = () => {
     return (
         <div>
-             <Swiper
-            modules={[Navigation, Autoplay]}
-            navigation={true}
-            autoplay={{
-                delay: 2000,
-                disableOnInteraction: false,
-            }}
-            loop={true}
-            className="w-[770px] h-[600px] z-0"
-        >
-            <SwiperSlide>
-                <Image width={770} height={600} alt="" src="https://images.unsplash.com/photo-1776655978171-48b2185bbef7" className="h-[600px] w-full rounded" />
-            </SwiperSlide>
-            <SwiperSlide>
-                <Image width={770} height={600} alt="" src="https://images.unsplash.com/photo-1642407021218-5f1ae25c3604" className="h-[600px] w-full rounded" />
-            </SwiperSlide>
+            <Swiper
+                modules={[Navigation, Autoplay]}
+                navigation={true}
+                autoplay={{
+                    delay: 2000,
+                    disableOnInteraction: false,
+                }}
+                loop={true}
+                className="w-[500px] h-[300px] z-0"
+            >
+                <SwiperSlide>
+                    <Image width={770} height={600} alt="" src="https://plus.unsplash.com/premium_photo-1681843815216-f50fc50d0b8a" className="h-[300px] object-cover w-full rounded-2xl" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Image width={770} height={600} alt="" src="https://images.unsplash.com/photo-1712746438734-70d05ade0e02" className="h-[300px] object-cover w-full rounded-2xl" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Image width={770} height={600} alt="" src="https://plus.unsplash.com/premium_photo-1683133331408-ad77955f6d03" className="h-[300px] object-cover w-full rounded-2xl" />
+                </SwiperSlide>
 
-            <SwiperSlide>
-                <Image width={770} height={600} alt="" src="https://images.unsplash.com/photo-1653157992433-d2d4230fb651" className="h-[600px] w-full rounded" />
-            </SwiperSlide>
 
-            <SwiperSlide>
-                <Image width={770} height={600} alt="" src="https://images.unsplash.com/photo-1777196963629-0c09dd203433" className="h-[600px] w-full rounded" />
-            </SwiperSlide>
-            <SwiperSlide>
-                <Image width={770} height={600} alt="" src="https://images.unsplash.com/photo-1487958449943-2429e8be8625" className="h-[600px] w-full rounded" />
-            </SwiperSlide>
-            <SwiperSlide>
-                <Image width={770} height={600} alt="" src="https://i.ibb.co.com/tMrBLhkP/Screenshot-2026-05-12-at-3-46-53-AM-Photoroom.png" className="h-[600px] w-full rounded" />
-            </SwiperSlide>
-        </Swiper>
+                <SwiperSlide>
+                    <Image width={770} height={600} alt="" src="https://images.unsplash.com/photo-1595762834093-8964e63a87b9" className="h-[300px] object-cover w-full rounded-2xl" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Image width={770} height={600} alt="" src="https://images.unsplash.com/photo-1721904309410-ca4cd5ed681e" className="h-[300px] object-cover w-full rounded-2xl" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Image width={770} height={600} alt="" src="https://images.unsplash.com/photo-1579364068581-33f9cf730738" className="h-[300px] object-cover w-full rounded-2xl" />
+                </SwiperSlide>
+            </Swiper>
         </div>
     );
 };
