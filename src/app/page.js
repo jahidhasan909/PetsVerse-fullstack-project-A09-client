@@ -2,6 +2,7 @@ import Banner from "@/Components/Banner/Banner";
 import PetAdoptionBanner from "@/Components/ButtomExplainAdoptBanner/PetAdoptionBanner";
 import PawsitiveReviews from "@/Components/PawsitiveReviews/PawsitiveReviews";
 import PetCareTips from "@/Components/PetCareTips/PetCareTips";
+import Footer from "@/Components/Shared/Footer";
 import SuccessStories from "@/Components/SuccessStories/SuccessStories";
 import WhyAdoptPets from "@/Components/WhyAdoptPets/WhyAdoptPets";
 import Image from "next/image";
@@ -15,6 +16,7 @@ export default function Home() {
       <PetCareTips></PetCareTips>
       <PawsitiveReviews></PawsitiveReviews>
       <PetAdoptionBanner></PetAdoptionBanner>
+      <Footer></Footer>
     </div>
   );
 }

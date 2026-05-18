@@ -4,11 +4,11 @@ import React from 'react';
 
 const PetCareTips = () => {
     return (
-        <div className='my-10 max-w-5xl mx-auto'>
+        <div className='my-10 max-w-6xl mx-auto'>
             <h1 className='text-center text-xl font-semibold'>Pet Care Tips</h1>
             <p className='text-center pt-2 pb-4'>Simple tips to keep your pets happy, healthy, and well cared for.</p>
 
-            <Image className='w-full  h-[450px]  rounded-2xl' src={'https://i.ibb.co.com/7Jnc2drX/Chat-GPT-Image-May-19-2026-at-01-43-04-AM.png'} width={800} height={670} alt='petsimg'></Image>
+            <Image className='mx-auto h-[400px]  rounded-2xl' src={'https://i.ibb.co.com/TMB1WXQz/Chat-GPT-Image-May-19-2026-at-01-43-04-AM-removebg-preview.png'} width={800} height={670} alt='petsimg'></Image>
 
 
             <section className='grid grid-cols-2 gap-4 mt-5'>
