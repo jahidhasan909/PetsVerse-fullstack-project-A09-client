@@ -1,4 +1,5 @@
 import Banner from "@/Components/Banner/Banner";
+import PetAdoptionBanner from "@/Components/ButtomExplainAdoptBanner/PetAdoptionBanner";
 import PawsitiveReviews from "@/Components/PawsitiveReviews/PawsitiveReviews";
 import PetCareTips from "@/Components/PetCareTips/PetCareTips";
 import SuccessStories from "@/Components/SuccessStories/SuccessStories";
@@ -13,6 +14,7 @@ export default function Home() {
       <SuccessStories></SuccessStories>
       <PetCareTips></PetCareTips>
       <PawsitiveReviews></PawsitiveReviews>
+      <PetAdoptionBanner></PetAdoptionBanner>
     </div>
   );
 }
