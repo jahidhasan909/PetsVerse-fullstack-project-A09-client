@@ -1,6 +1,7 @@
-import { Fredoka,Italianno } from "next/font/google";
+import { Fredoka, Italianno } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/Components/Shared/Navbar";
+import { Toaster } from "react-hot-toast";
 
 
 const fredoka = Fredoka({
@@ -8,7 +9,7 @@ const fredoka = Fredoka({
 });
 export const italianno = Italianno({
   subsets: ["latin"],
-   weight: '400',
+  weight: '400',
 });
 
 
@@ -27,7 +28,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-full  flex flex-col">
         <Navbar></Navbar>
         <main className=" grow">{children}</main>
-
+        <Toaster />
       </body>
     </html>
   );
