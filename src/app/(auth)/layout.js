@@ -2,6 +2,7 @@ import { Fredoka, Italianno } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/Components/Shared/Navbar";
 import { Toaster } from "react-hot-toast";
+import Footer from "@/Components/Shared/Footer";
 
 
 const fredoka = Fredoka({
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
         <Navbar></Navbar>
         <main className=" grow">{children}</main>
         <Toaster />
+        <Footer></Footer>
       </body>
     </html>
   );

@@ -3,6 +3,7 @@ import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import { Button, Card, Description, FieldError, Form, Input, Label, Separator, TextField } from "@heroui/react";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import toast from "react-hot-toast";
 
 
@@ -15,23 +16,29 @@ const RegistrationPage = () => {
         const formdata = new FormData(e.currentTarget)
         const newUserData = Object.fromEntries(formdata.entries())
 
-        const { name, password,confirmpassword } = newUserData
+        const { password, confirmpassword } = newUserData
 
         if (password !== confirmpassword) {
-           return toast.error('password not match')
-            
+            return toast.error('password not match')
+
         }
 
         const { data, error } = await authClient.signUp.email({
             name: newUserData?.name,
             password: newUserData?.password,
-            // confirmpassword: newUserData?.confirmpassword,
             image: newUserData?.image,
             email: newUserData?.email
         })
 
-        console.log(data,'data');
-        console.log(error,'error')
+        if (data) {
+            toast.success('SingUp Successful !')
+            redirect('/login')
+        }
+
+        if (error) {
+            toast.warning(error.message)
+        }
+
 
     }
 

@@ -2,6 +2,9 @@
 import { FcGoogle } from "react-icons/fc";
 import { Button, Card, Description, FieldError, Form, Input, Label, Separator, TextField } from "@heroui/react";
 import Link from "next/link";
+import toast from "react-hot-toast";
+import { redirect } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 
 
 
@@ -20,14 +23,22 @@ const LoginPage = () => {
 
         })
 
-        console.log(data, 'data');
-        console.log(error, 'error')
+        if (data) {
+            toast.success('Login successful !')
+            redirect('/')
+        }
+        if (error) {
+            toast.error(error.message)
+        }
     }
 
     const handleGoogleLogin = async () => {
         await authClient.signIn.social({
             provider: "google",
         });
+
+      
+
     }
 
     return (
@@ -88,7 +99,7 @@ const LoginPage = () => {
                         Log In With Google
                     </Button>
 
-                    <span className="text-center text-neutral-400"><span>{"Don't have an account?"}</span> <Link href={'/singup'}><span className="text-[#b38b6d] font-semibold">Register</span></Link></span>
+                    <span className="text-center text-neutral-400"><span>{"Don't have an account?"}</span> <Link href={'/registration'}><span className="text-[#b38b6d] font-semibold">Register</span></Link></span>
                 </Card>
             </div>
         </div>
