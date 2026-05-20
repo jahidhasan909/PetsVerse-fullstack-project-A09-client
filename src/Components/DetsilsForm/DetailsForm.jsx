@@ -1,0 +1,142 @@
+"use client"
+import React, { useState } from 'react';
+import { Form, TextField, Label, Input, FieldError, Description, Button, Card, DateField, Calendar } from "@heroui/react";
+import { IconHeart, IconUser, IconMail, IconCalendar, IconPaw } from "@tabler/icons-react";
+import { authClient } from '@/lib/auth-client';
+
+const DetailsForm = ({ expectedPets }) => {
+
+
+    const { data, isPending } = authClient.useSession()
+
+
+    const [departureDate, setDepartureDate] = useState(null)
+
+    const user = data?.user
+
+
+    const isOwner = user?.email === expectedPets?.ownerEmail
+
+    if (isOwner) {
+        return (
+            <div className='h-full flex items-center justify-center border rounded-xl'>
+                <h2 className='text-xl font-semibold'>
+                    This is your posted pet
+                </h2>
+            </div>
+        )
+    }
+
+    if (isPending) {
+        return <h1>loading..</h1>
+    }
+
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(e.currentTarget));
+        console.log("Submitted Data:", data);
+    };
+
+    return (
+        <div className="flex justify-center items-center min-h-screen bg-white p-4">
+            <Card className="w-full max-w-lg bg-white border border-black rounded-xl shadow-none p-6">
+
+
+                <div className="flex gap-3 items-center pb-4 border-b border-black">
+                    <IconHeart className="text-black" size={24} stroke={2} />
+                    <div className="flex flex-col">
+                        <h2 className="text-xl font-bold text-black tracking-tight">
+                            Request to Adopt Destiny Drake
+                        </h2>
+                        <p className="text-sm text-neutral-500">
+                            Fill out this form and the owner will review your request.
+                        </p>
+                    </div>
+                </div>
+
+
+                <Form
+                    className="flex flex-col gap-6 py-6 w-full"
+                    render={(props) => <form {...props} data-custom="adoption-form" />}
+                    onSubmit={onSubmit}
+                >
+
+
+                    <TextField name="petName" defaultValue={`${expectedPets?.petName}`} className="flex flex-col gap-1.5 w-full">
+                        <Label className="text-black font-semibold text-sm"></Label>
+                        <div className="relative flex items-center">
+                            <Input
+                                readOnly
+                                className="w-full border border-black bg-neutral-100 px-3 py-2 rounded-lg text-neutral-600 font-medium text-sm outline-none"
+                            />
+                        </div>
+                    </TextField>
+                    <TextField name="petName" defaultValue={user?.name} className="flex flex-col gap-1.5 w-full">
+                        <Label className="text-black font-semibold text-sm"></Label>
+                        <div className="relative flex items-center">
+                            <Input
+                                readOnly
+                                className="w-full border border-black bg-neutral-100 px-3 py-2 rounded-lg text-neutral-600 font-medium text-sm outline-none"
+                            />
+                        </div>
+                    </TextField>
+
+
+                    <TextField name="petName" defaultValue={user?.email} className="flex flex-col gap-1.5 w-full">
+                        <Label className="text-black font-semibold text-sm"></Label>
+                        <div className="relative flex items-center">
+                            <Input
+                                readOnly
+                                className="w-full border border-black bg-neutral-100 px-3 py-2 rounded-lg text-neutral-600 font-medium text-sm outline-none"
+                            />
+                        </div>
+                    </TextField>
+
+
+                    <DateField onChange={setDepartureDate} className="" name="date">
+                        <Label className='text-white'>Departure Date</Label>
+                        <DateField.Group className={'border'}>
+                            <DateField.Input>{(segment) => <DateField.Segment segment={segment} />}</DateField.Input>
+                            <DateField.Suffix>
+                                <Calendar className="size-4 text-muted" />
+                            </DateField.Suffix>
+                        </DateField.Group>
+                    </DateField>
+
+
+
+                    <TextField
+                        name="message"
+                        className="flex flex-col gap-1.5 w-full"
+                    >
+                        <Label className="text-black font-semibold text-sm">Message to Owner</Label>
+
+                        <textarea
+                            name="message"
+                            placeholder="Tell the owner why you'd be a great match for Destiny Drake..."
+                            rows={4}
+                            className="w-full border border-black p-3 rounded-lg text-black text-sm bg-white focus:border-neutral-700 outline-none transition-colors resize-y min-h-[90px]"
+                        />
+                        <Description className="text-xs text-neutral-400">Optional: Write a short note to the pet owner.</Description>
+                        <FieldError className="text-xs text-red-600 mt-1" />
+                    </TextField>
+
+
+                    <div className="flex gap-3 w-full mt-2">
+                        <Button
+                            type="submit"
+                            className="flex-1 bg-black text-white font-bold text-md py-6 rounded-lg hover:bg-neutral-800 transition-colors border border-black flex items-center justify-center gap-2"
+                        >
+                            <IconPaw size={18} />
+                            Adopt Destiny Drake
+                        </Button>
+                    </div>
+
+                </Form>
+            </Card>
+        </div >
+    );
+};
+
+export default DetailsForm;

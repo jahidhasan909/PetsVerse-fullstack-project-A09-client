@@ -17,13 +17,13 @@ export function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname()
 
-    const { data, isPending, error } = authClient.useSession()
+    const { data, isPending } = authClient.useSession()
 
-    console.log(error, 'error user');
+    
 
 
     const user = data?.user
-    console.log(user);
+   
 
 
     if (isPending) {
@@ -85,7 +85,7 @@ export function Navbar() {
 
                         </div>
                         <div className="">
-                            <Link className={pathname === '/profile' ? 'py-2 text-[#eb7a09] no-underline font-bold text-[12px]' : 'py-2 no-underline text-white  font-semibold text-[12px]'} href={'/allpets'}> All Pets</Link>
+                            <Link className={pathname === '/allpets' ? 'py-2 text-[#eb7a09] no-underline font-bold text-[12px]' : 'py-2 no-underline text-white  font-semibold text-[12px]'} href={'/allpets'}> All Pets</Link>
 
                         </div>
 
