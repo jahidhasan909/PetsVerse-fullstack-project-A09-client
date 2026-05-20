@@ -4,13 +4,14 @@ import { Form, TextField, Label, Input, FieldError, Description, Button, Card, D
 import { IconHeart, IconUser, IconMail, IconCalendar, IconPaw } from "@tabler/icons-react";
 import { authClient } from '@/lib/auth-client';
 
+
 const DetailsForm = ({ expectedPets }) => {
 
 
     const { data, isPending } = authClient.useSession()
 
 
-    const [departureDate, setDepartureDate] = useState(null)
+    const [adoptionDate, setAdoptionDate] = useState(null)
 
     const user = data?.user
 
@@ -32,10 +33,88 @@ const DetailsForm = ({ expectedPets }) => {
     }
 
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
-        const data = Object.fromEntries(new FormData(e.currentTarget));
-        console.log("Submitted Data:", data);
+        const formData = new FormData(e.currentTarget)
+        const petsadopt = Object.fromEntries(formData.entries());
+
+
+        const adoptInfo = {
+
+
+            petsId: expectedPets?._id,
+            petsName: expectedPets?.petName,
+            petsImage: expectedPets?.imageUrl,
+
+
+            ownerEmail: expectedPets?.ownerEmail,
+            ownerName: expectedPets?.ownerName,
+
+
+            userName: user?.name,
+            userEmail: user?.email,
+            userImage: user?.image,
+
+
+            adoptionDate: new Date(adoptionDate),
+            message: petsadopt.message,
+
+
+            status: "pending",
+
+
+            createdAt: new Date()
+        };
+
+
+
+        const res = await fetch('http://localhost:8000/adopt', {
+
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+
+            body: JSON.stringify(adoptInfo)
+
+        });
+
+        const postresult = await res.json();
+
+        console.log(postresult);
+
+
+
+        const respatch = await fetch(
+
+            `http://localhost:8000/allpets/${expectedPets?._id}`,
+
+            {
+
+                method: "PATCH",
+
+                headers: {
+                    "content-type": "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    status: "pending"
+
+                })
+
+            }
+
+        );
+
+        const patchresult = await respatch.json()
+
+        console.log(patchresult);
+
+
+
+
+
     };
 
     return (
@@ -72,7 +151,7 @@ const DetailsForm = ({ expectedPets }) => {
                             />
                         </div>
                     </TextField>
-                    <TextField name="petName" defaultValue={user?.name} className="flex flex-col gap-1.5 w-full">
+                    <TextField name="username" defaultValue={user?.name} className="flex flex-col gap-1.5 w-full">
                         <Label className="text-black font-semibold text-sm"></Label>
                         <div className="relative flex items-center">
                             <Input
@@ -83,7 +162,7 @@ const DetailsForm = ({ expectedPets }) => {
                     </TextField>
 
 
-                    <TextField name="petName" defaultValue={user?.email} className="flex flex-col gap-1.5 w-full">
+                    <TextField name="email" defaultValue={user?.email} className="flex flex-col gap-1.5 w-full">
                         <Label className="text-black font-semibold text-sm"></Label>
                         <div className="relative flex items-center">
                             <Input
@@ -94,7 +173,7 @@ const DetailsForm = ({ expectedPets }) => {
                     </TextField>
 
 
-                    <DateField onChange={setDepartureDate} className="" name="date">
+                    <DateField onChange={setAdoptionDate} className="" name="date">
                         <Label className='text-white'>Departure Date</Label>
                         <DateField.Group className={'border'}>
                             <DateField.Input>{(segment) => <DateField.Segment segment={segment} />}</DateField.Input>
