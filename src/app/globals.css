@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@import "@heroui/styles";
+
+
+:root {
+  --swiper-navigation-color: #f5fbf0;
+  --swiper-navigation-size: 25px;
+
+}
