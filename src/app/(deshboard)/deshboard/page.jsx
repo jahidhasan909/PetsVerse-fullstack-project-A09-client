@@ -3,6 +3,8 @@ import React from 'react';
 import { Button, Table } from "@heroui/react";
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
+import Link from 'next/link';
+import ListingAlter from '@/Components/ListingCancelAlter/ListingCancelAlert';
 
 
 const DeshBoardHomePage = async () => {
@@ -18,7 +20,9 @@ const DeshBoardHomePage = async () => {
     const adoptPetInformation = await res.json()
 
 
-  
+    
+
+
 
 
 
@@ -33,20 +37,26 @@ const DeshBoardHomePage = async () => {
                             <Table.Column>Request Date</Table.Column>
                             <Table.Column>Pickup Date</Table.Column>
                             <Table.Column>Status</Table.Column>
-                            <Table.Column>Actions</Table.Column>
+                            <Table.Column className={'pl-40'}>Actions</Table.Column>
                         </Table.Header>
                         <Table.Body>
                             {
                                 adoptPetInformation.map(apotpets =>
 
                                     <Table.Row key={apotpets._id}>
+
                                         <Table.Cell>{apotpets.petsName}</Table.Cell>
                                         <Table.Cell>{apotpets.createdAt}</Table.Cell>
                                         <Table.Cell>{apotpets.adoptionDate}</Table.Cell>
                                         <Table.Cell>{apotpets.status}</Table.Cell>
-                                        <Table.Cell>
-                                            <Button variant='outline'>View</Button>
-                                            <Button variant='outline' className={'text-red-400 border-red-400'}>Cancel</Button>
+                                        <Table.Cell className={'flex gap-3 pl-40'}>
+                                            <Link href={`/allpets/${apotpets?.petsId}`}><Button variant='outline'>View</Button></Link>
+                                            {
+                                                apotpets.status !== "adopted" &&
+                                                apotpets.status !== "approved" && (
+                                                   <ListingAlter apotpets={apotpets}></ListingAlter>
+                                                )
+                                            }
                                         </Table.Cell>
 
                                     </Table.Row>

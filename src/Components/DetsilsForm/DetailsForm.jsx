@@ -18,6 +18,26 @@ const DetailsForm = ({ expectedPets }) => {
 
     const isOwner = user?.email === expectedPets?.ownerEmail
 
+    const isAdopted = expectedPets?.status === 'adopted';
+
+    if (isAdopted) {
+        <div className='min-h-[400px] flex items-center justify-center border rounded-xl'>
+
+            <div className='text-center space-y-3'>
+
+                <h2 className='text-2xl font-bold text-green-500'>
+                    This pet is already adopted
+                </h2>
+
+                <p className='text-gray-400'>
+                    The owner has already approved an adoption request.
+                </p>
+
+            </div>
+
+        </div>
+    }
+
     if (isOwner) {
         return (
             <div className='h-full flex items-center justify-center border rounded-xl'>

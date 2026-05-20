@@ -6,6 +6,58 @@ import { Button, Modal } from "@heroui/react";
 import { useState } from "react";
 
 export function RequestModal({ _id }) {
+
+
+
+
+    const handleStatusUpdate = async (requestId, status) => {
+
+        try {
+
+            const res = await fetch(
+                `http://localhost:8000/adopt/${requestId}`,
+                {
+                    method: "PATCH",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        status,
+                        petsId: _id
+                    })
+                }
+            );
+
+            const data = await res.json();
+
+            console.log(data);
+
+            
+            const updated = modalData.map((item) => {
+
+                if (item._id === requestId) {
+                    return {
+                        ...item,
+                        status
+                    };
+                }
+
+                return item;
+            });
+
+            setModalData(updated);
+
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+
+
+
+
+
+
     const [modalData, setModalData] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -15,13 +67,13 @@ export function RequestModal({ _id }) {
     const fetchRequests = async () => {
         try {
             if (!_id) {
-                console.log("❌ petsId missing");
+                console.log("missing");
                 return;
             }
 
             setLoading(true);
 
-            console.log("🔥 Fetching for petsId:", _id);
+            console.log("petsId:", _id);
 
             const res = await fetch(
                 `http://localhost:8000/adopt/${_id}`
@@ -29,11 +81,11 @@ export function RequestModal({ _id }) {
 
             const data = await res.json();
 
-            console.log("✅ API response:", data);
+            console.log("res:", data);
 
             setModalData(data || []);
-        } catch (err) {
-            console.error("❌ Fetch error:", err);
+        } catch (error) {
+            console.error("Fetch error:",error);
         } finally {
             setLoading(false);
         }
@@ -41,7 +93,7 @@ export function RequestModal({ _id }) {
 
     const handleOpen = () => {
         setIsOpen(true);
-        fetchRequests(); // 🔥 fetch on open (BEST PRACTICE)
+        fetchRequests(); 
     };
 
     if (isPending) {
@@ -54,12 +106,11 @@ export function RequestModal({ _id }) {
 
     return (
         <>
-            {/* OPEN BUTTON */}
+         
             <Button onPress={handleOpen} variant="secondary">
                 Requests ({modalData.length})
             </Button>
 
-            {/* MODAL */}
             <Modal
                 isOpen={isOpen}
                 onOpenChange={(open) => setIsOpen(open)}
@@ -68,7 +119,7 @@ export function RequestModal({ _id }) {
                     <Modal.Container>
                         <Modal.Dialog className="sm:max-w-[360px]">
 
-                            {/* CLOSE BUTTON */}
+                        
                             <Button
                                 className="absolute right-2 top-2 min-w-0 p-1 bg-transparent text-neutral-400 hover:text-black"
                                 onPress={() => setIsOpen(false)}
@@ -76,7 +127,7 @@ export function RequestModal({ _id }) {
                                 ✕
                             </Button>
 
-                            {/* HEADER */}
+                           
                             <Modal.Header>
                                 <Modal.Icon className="bg-default text-foreground">
                                     <Rocket className="size-5" />
@@ -87,7 +138,6 @@ export function RequestModal({ _id }) {
                                 </Modal.Heading>
                             </Modal.Header>
 
-                            {/* BODY */}
                             <Modal.Body>
                                 {loading ? (
                                     <p className="text-center text-sm">
@@ -112,8 +162,63 @@ export function RequestModal({ _id }) {
                                                 <p className="text-xs text-neutral-600">
                                                     {req.userEmail}
                                                 </p>
-                                                <Button>Approve</Button>
-                                                <Button>Reject</Button>
+
+
+
+
+
+
+                                                <div className="flex gap-2 mt-3">
+
+                                                    {req.status === "pending" && (
+                                                        <>
+                                                            <Button
+                                                                color="success"
+                                                                onPress={() =>
+                                                                    handleStatusUpdate(req._id, "approved")
+                                                                }
+                                                            >
+                                                                Approve
+                                                            </Button>
+
+                                                            <Button
+                                                                color="danger"
+                                                                onPress={() =>
+                                                                    handleStatusUpdate(req._id, "rejected")
+                                                                }
+                                                            >
+                                                                Reject
+                                                            </Button>
+                                                        </>
+                                                    )}
+
+                                                    {req.status === "approved" && (
+                                                        <p className="text-green-500 font-semibold">
+                                                            Approved
+                                                        </p>
+                                                    )}
+
+                                                    {req.status === "rejected" && (
+                                                        <p className="text-red-500 font-semibold">
+                                                            Rejected
+                                                        </p>
+                                                    )}
+
+                                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                             </div>
                                         ))}
                                     </div>

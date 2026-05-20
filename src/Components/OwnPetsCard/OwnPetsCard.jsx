@@ -2,6 +2,8 @@ import { Button, Card } from '@heroui/react';
 import Image from 'next/image';
 import React from 'react';
 import { RequestModal } from '../RequestModal/RequestModal';
+import Link from 'next/link';
+import MyListingAlertDeletd from '../MyListingAlert/MyLIstingAlertDelete';
 
 const OwnPetsCard = ({ ownpets }) => {
 
@@ -19,10 +21,11 @@ const OwnPetsCard = ({ ownpets }) => {
                         <h3 className='text-[1.10rem] text-[#b38b6d]'>${ownpets?.adoptionFee}/Adoption Fee</h3>
 
                         <div className=' grid grid-cols-2 '>
-                            <Button>View</Button>
+                            <Link href={`/allpets/${ownpets._id}`}><Button>View</Button></Link>
+                            
                             <Button>Edit</Button>
                             <RequestModal _id={ownpets?._id}></RequestModal>
-                            <Button>Deleted</Button>
+                            <MyListingAlertDeletd ownpets={ownpets}></MyListingAlertDeletd>
 
                         </div>
 
