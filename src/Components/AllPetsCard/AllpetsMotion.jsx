@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion'
 import AllpetsCard from './AllpetsCard';
 import { SearchField } from '@heroui/react';
@@ -8,6 +8,25 @@ import { useState } from "react";
 import { ChevronDown } from '@gravity-ui/icons';
 
 const AllpetsMotion = ({ pets }) => {
+
+
+    const [allPets,  setAllPets] = useState(pets);
+
+    const [search,  setSearch] = useState('');
+
+    const [species,  setSpecies] = useState('');
+
+
+
+    useEffect(() => {
+        fetch(
+            `http://localhost:8000/allpets?search=${search}&species=${species}`
+        )
+            .then(res => res.json())
+            .then(data => setAllPets(data));
+    }, [search, species]);
+
+
     return (
         <div className='my-29'>
             <h1 className='text-center text-3xl font-bold'>Find Your Companion</h1>
@@ -18,7 +37,7 @@ const AllpetsMotion = ({ pets }) => {
                 <SearchField name="search">
                     <SearchField.Group>
                         <SearchField.SearchIcon />
-                        <SearchField.Input className="w-[280px]" placeholder="Search..." />
+                        <SearchField.Input className="w-[280px]" placeholder="Search..." onChange={(e) => setSearch(e.target.value)} />
                         <SearchField.ClearButton />
                     </SearchField.Group>
                 </SearchField>
@@ -31,25 +50,30 @@ const AllpetsMotion = ({ pets }) => {
                     </Button>
                     <Dropdown.Popover className="min-w-[256px]">
                         <Dropdown.Menu
+                         onAction={(key) => setSpecies(key)}
                             selectionMode="single"
 
                         >
                             <Dropdown.Section>
-                                <Header>Dog</Header>
-                                <Dropdown.Item id="apple" textValue="Apple">
+                                
+                                <Dropdown.Item id="Dog" textValue="Dog">
+                                    <Dropdown.ItemIndicator />
+                                    <Label>Dog</Label>
+                                </Dropdown.Item>
+                                <Dropdown.Item id="Cat" textValue="Cat">
                                     <Dropdown.ItemIndicator />
                                     <Label>Cat</Label>
                                 </Dropdown.Item>
-                                <Dropdown.Item id="banana" textValue="Banana">
+                                <Dropdown.Item id="Bird" textValue="Bird">
                                     <Dropdown.ItemIndicator />
                                     <Label>Bird</Label>
                                 </Dropdown.Item>
-                                <Dropdown.Item id="cherry" textValue="Cherry">
+                                <Dropdown.Item id="Rabbit" textValue="Rabbit">
                                     <Dropdown.ItemIndicator />
                                     <Label>Rabbit</Label>
                                 </Dropdown.Item>
                             </Dropdown.Section>
-                            <Dropdown.Item id="orange" textValue="Orange">
+                            <Dropdown.Item id="other" textValue="other">
                                 <Dropdown.ItemIndicator />
                                 <Label>other</Label>
                             </Dropdown.Item>
@@ -59,7 +83,7 @@ const AllpetsMotion = ({ pets }) => {
             </div>
             <div className='grid grid-cols-4 gap-4'>
                 {
-                    pets.map((pet, index) => <motion.div
+                    allPets.map((pet, index) => <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.15 }}
