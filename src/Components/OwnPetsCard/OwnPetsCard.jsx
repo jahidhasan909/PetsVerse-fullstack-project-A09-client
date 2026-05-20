@@ -4,6 +4,7 @@ import React from 'react';
 import { RequestModal } from '../RequestModal/RequestModal';
 import Link from 'next/link';
 import MyListingAlertDeletd from '../MyListingAlert/MyLIstingAlertDelete';
+import EditModal from '../EditModal/EditModal';
 
 const OwnPetsCard = ({ ownpets }) => {
 
@@ -23,7 +24,7 @@ const OwnPetsCard = ({ ownpets }) => {
                         <div className=' grid grid-cols-2 '>
                             <Link href={`/allpets/${ownpets._id}`}><Button>View</Button></Link>
                             
-                            <Button>Edit</Button>
+                            <EditModal ownpets={ownpets}></EditModal>
                             <RequestModal _id={ownpets?._id}></RequestModal>
                             <MyListingAlertDeletd ownpets={ownpets}></MyListingAlertDeletd>
 
