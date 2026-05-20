@@ -18,7 +18,7 @@ const DeshBoardHomePage = async () => {
     const adoptPetInformation = await res.json()
 
 
-    console.log(adoptPetInformation, 'adoptinformation');
+  
 
 
 

@@ -81,7 +81,7 @@ const DetailsForm = ({ expectedPets }) => {
 
         const postresult = await res.json();
 
-        console.log(postresult);
+        // console.log(postresult);
 
 
 
@@ -109,7 +109,7 @@ const DetailsForm = ({ expectedPets }) => {
 
         const patchresult = await respatch.json()
 
-        console.log(patchresult);
+        // console.log(patchresult);
 
 
 

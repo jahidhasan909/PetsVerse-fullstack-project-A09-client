@@ -1,3 +1,4 @@
+import OwnPetsCard from '@/Components/OwnPetsCard/OwnPetsCard';
 import { auth } from '@/lib/auth';
 import { Card } from '@heroui/react';
 import { headers } from 'next/headers';
@@ -38,12 +39,11 @@ const MyListingPage = async () => {
                 </Card>
             </div>
 
-            {
-                ownListingpets.map(ownpets => <Card key={ownpets._id}>
-                    <h1>{ownpets.petName}</h1>
-                    <p>{ownpets.status}</p>
-                </Card>)
-            }
+            <div className='grid grid-cols-4'>
+                {
+                    ownListingpets.map(ownpets => <OwnPetsCard key={ownpets._id} ownpets={ownpets}></OwnPetsCard>)
+                }
+            </div>
 
 
         </div>
