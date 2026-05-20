@@ -5,6 +5,8 @@ import { FieldError, Input, Label, TextField, Select, ListBox, TextArea, Button,
 import { FaWpforms } from "react-icons/fa6";
 
 import { authClient } from '@/lib/auth-client';
+import toast from 'react-hot-toast';
+import { redirect } from 'next/navigation';
 
 const AddPetListing = () => {
 
@@ -53,7 +55,10 @@ const AddPetListing = () => {
 
         const data = await res.json()
 
-        console.log(data,'data');
+        if (data) {
+            toast.success('pets successfully')
+            redirect('/deshboard/my-listings')
+        }
         
 
     }

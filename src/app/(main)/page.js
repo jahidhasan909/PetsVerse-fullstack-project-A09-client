@@ -1,5 +1,6 @@
 import Banner from "@/Components/Banner/Banner";
 import PetAdoptionBanner from "@/Components/ButtomExplainAdoptBanner/PetAdoptionBanner";
+import AppendDots from "@/Components/FeaturedPets/FeaturedPets";
 import PawsitiveReviews from "@/Components/PawsitiveReviews/PawsitiveReviews";
 import PetCareTips from "@/Components/PetCareTips/PetCareTips";
 
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <div>
       <Banner></Banner>
+      <AppendDots></AppendDots>
       <WhyAdoptPets></WhyAdoptPets>
       <SuccessStories></SuccessStories>
       <PetCareTips></PetCareTips>

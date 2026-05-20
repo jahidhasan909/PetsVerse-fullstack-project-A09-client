@@ -5,10 +5,11 @@ import { FaFacebookF } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
-import { italianno } from '@/app/(main)/layout';
+
 import { Button } from '@heroui/react';
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
+import { italianno } from '@/app/layout';
 
 
 
