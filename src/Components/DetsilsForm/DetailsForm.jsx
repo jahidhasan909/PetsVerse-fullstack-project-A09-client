@@ -138,15 +138,15 @@ const DetailsForm = ({ expectedPets }) => {
     };
 
     return (
-        <div className="flex justify-center items-center min-h-screen bg-white p-4">
-            <Card className="w-full max-w-lg bg-white border border-black rounded-xl shadow-none p-6">
+        <div className="w-full">
+            <Card className="w-full max-w-lg bg-white/40 border-white/40 border rounded-2xl shadow-none p-6">
 
 
                 <div className="flex gap-3 items-center pb-4 border-b border-black">
-                    <IconHeart className="text-black" size={24} stroke={2} />
+                    
                     <div className="flex flex-col">
-                        <h2 className="text-xl font-bold text-black tracking-tight">
-                            Request to Adopt Destiny Drake
+                        <h2 className="text-xl font-semibold text-black ">
+                            Request to Adopt {expectedPets?.petName}
                         </h2>
                         <p className="text-sm text-neutral-500">
                             Fill out this form and the owner will review your request.
@@ -163,7 +163,7 @@ const DetailsForm = ({ expectedPets }) => {
 
 
                     <TextField name="petName" defaultValue={`${expectedPets?.petName}`} className="flex flex-col gap-1.5 w-full">
-                        <Label className="text-black font-semibold text-sm"></Label>
+                        <Label className="text-black font-semibold text-sm">Pet Name</Label>
                         <div className="relative flex items-center">
                             <Input
                                 readOnly
@@ -172,7 +172,7 @@ const DetailsForm = ({ expectedPets }) => {
                         </div>
                     </TextField>
                     <TextField name="username" defaultValue={user?.name} className="flex flex-col gap-1.5 w-full">
-                        <Label className="text-black font-semibold text-sm"></Label>
+                        <Label className="text-black font-semibold text-sm">Your Name</Label>
                         <div className="relative flex items-center">
                             <Input
                                 readOnly
@@ -183,7 +183,7 @@ const DetailsForm = ({ expectedPets }) => {
 
 
                     <TextField name="email" defaultValue={user?.email} className="flex flex-col gap-1.5 w-full">
-                        <Label className="text-black font-semibold text-sm"></Label>
+                        <Label className="text-black font-semibold text-sm">Your Email</Label>
                         <div className="relative flex items-center">
                             <Input
                                 readOnly
@@ -194,7 +194,7 @@ const DetailsForm = ({ expectedPets }) => {
 
 
                     <DateField onChange={setAdoptionDate} className="" name="date">
-                        <Label className='text-white'>Departure Date</Label>
+                        <Label className=''>Pickup Date</Label>
                         <DateField.Group className={'border'}>
                             <DateField.Input>{(segment) => <DateField.Segment segment={segment} />}</DateField.Input>
                             <DateField.Suffix>
@@ -215,7 +215,7 @@ const DetailsForm = ({ expectedPets }) => {
                             name="message"
                             placeholder="Tell the owner why you'd be a great match for Destiny Drake..."
                             rows={4}
-                            className="w-full border border-black p-3 rounded-lg text-black text-sm bg-white focus:border-neutral-700 outline-none transition-colors resize-y min-h-[90px]"
+                            className="w-full border  p-3 rounded-lg text-black text-sm bg-white focus:border-neutral-700 outline-none transition-colors resize-y min-h-[90px]"
                         />
                         <Description className="text-xs text-neutral-400">Optional: Write a short note to the pet owner.</Description>
                         <FieldError className="text-xs text-red-600 mt-1" />
@@ -225,7 +225,7 @@ const DetailsForm = ({ expectedPets }) => {
                     <div className="flex gap-3 w-full mt-2">
                         <Button
                             type="submit"
-                            className="flex-1 bg-black text-white font-bold text-md py-6 rounded-lg hover:bg-neutral-800 transition-colors border border-black flex items-center justify-center gap-2"
+                            className="flex-1 bg-white/50  font-bold text-md py-6 rounded-lg  transition-colors border border-white/40 flex items-center justify-center gap-2"
                         >
                             <IconPaw size={18} />
                             Adopt Destiny Drake

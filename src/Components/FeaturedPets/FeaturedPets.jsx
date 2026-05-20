@@ -72,7 +72,7 @@ function AppendDots() {
     };
 
     return (
-        <div className="hidden md:block my-20 max-w-11/13 mx-auto">
+        <div className="hidden md:block my-27 max-w-11/13 mx-auto">
             <div className="flex justify-between items-center">
                 <div>
                     <h1 className="font-bold text-3xl ">Featured Pets</h1>

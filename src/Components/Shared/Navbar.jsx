@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 
 import { Sun, ArrowRightFromSquare, Gear, Persons, ChevronDown } from '@gravity-ui/icons';
 import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
 
 
 
@@ -19,11 +20,13 @@ export function Navbar() {
 
     const { data, isPending } = authClient.useSession()
 
-    
+    const router = useRouter();
+
+
 
 
     const user = data?.user
-   
+
 
 
     if (isPending) {
@@ -81,11 +84,11 @@ export function Navbar() {
 
 
                         <div className="">
-                            <Link className={pathname === '/' ? 'py-2  text-[#eb7a09] no-underline font-bold text-[12px]' : 'py-2 no-underline text-neutral-400 font-semibold text-[12px]'} href={'/'}>Home</Link>
+                            <Link className={pathname === '/' ? 'py-2  text-[#eb7a09] no-underline font-bold text-[12px]' : 'py-2 no-underline text-neutral-300 font-semibold text-[12px]'} href={'/'}>Home</Link>
 
                         </div>
                         <div className="">
-                            <Link className={pathname === '/allpets' ? 'py-2 text-[#eb7a09] no-underline font-bold text-[12px]' : 'py-2 no-underline text-white  font-semibold text-[12px]'} href={'/allpets'}> All Pets</Link>
+                            <Link className={pathname === '/allpets' ? 'py-2 text-[#eb7a09] no-underline font-bold text-[12px]' : 'py-2 no-underline text-neutral-300  font-semibold text-[12px]'} href={'/allpets'}> All Pets</Link>
 
                         </div>
 
@@ -128,16 +131,14 @@ export function Navbar() {
                                         </div>
                                         <Dropdown.Menu>
 
-                                            <Dropdown.Item textValue="Dashboard">
-                                                <Link className={'no-underline'} href="/deshboard">
-                                                    <Label>Dashboard</Label>
-                                                </Link>
+                                            <Dropdown.Item
+                                                textValue="Dashboard"
+                                                onClick={() => router.push("/deshboard")}
+                                            >
+                                                <Label>Dashboard</Label>
                                             </Dropdown.Item>
 
 
-                                            <Dropdown.Item textValue="Profile">
-                                                <Label>Profile</Label>
-                                            </Dropdown.Item>
 
                                             <Dropdown.Item onClick={() => authClient.signOut()} id="logout" textValue="Logout" variant="danger">
                                                 <div className="flex w-full items-center justify-between gap-2">

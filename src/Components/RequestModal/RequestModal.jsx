@@ -107,8 +107,8 @@ export function RequestModal({ _id }) {
     return (
         <>
          
-            <Button onPress={handleOpen} variant="secondary">
-                Requests ({modalData.length})
+            <Button onPress={handleOpen} className={'w-full'} variant="secondary">
+                Requests 
             </Button>
 
             <Modal

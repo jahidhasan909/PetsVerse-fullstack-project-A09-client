@@ -10,6 +10,7 @@ import { Button } from '@heroui/react';
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
 import { italianno } from '@/app/layout';
+import Link from 'next/link';
 
 
 
@@ -73,7 +74,7 @@ const Banner = () => {
 
 
 
-                <Button variant='outline' className={'bg-white/30 mt-5 border border-white/30 text-white'}>Adopt Now</Button>
+                <Link href={'/allpets'}><Button variant='outline' className={'bg-white/30 mt-5 border border-white/30 text-white'}>Adopt Now</Button></Link>
             </div>
 
             <div className=' absolute top-1/3 mt-20 ml-10 text-white'>

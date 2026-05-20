@@ -46,7 +46,7 @@ const LoginPage = () => {
             <div className="max-w-2xl mx-auto mt-35 mb-20 ">
                 <h1 className="text-center text-3xl font-bold ">Welcome Back</h1>
                 <p className="text-center text-neutral-400 mt-2 mb-5 text-[1.10rem]"></p>
-                <Card className=" rounded-md my-3 ">
+                <Card className="  my-3 bg-white/50 border border-white/50">
 
                     <Form className="max-w-2xl flex flex-col gap-4 p-2 " onSubmit={onSubmit}>
                         <TextField
@@ -61,7 +61,7 @@ const LoginPage = () => {
                             }}
                         >
                             <Label className="">Email</Label>
-                            <Input className={'rounded-md'} placeholder="john@example.com" />
+                            <Input className={''} placeholder="john@example.com" />
                             <FieldError />
                         </TextField>
                         <TextField
@@ -78,11 +78,11 @@ const LoginPage = () => {
                             }}
                         >
                             <Label className="">Password</Label>
-                            <Input className={'rounded-md '} placeholder="Enter your password" />
+                            <Input className={' '} placeholder="Enter your password" />
                             <FieldError />
                         </TextField>
 
-                        <Button type="submit" variant="outline" className={'bg-linear-to-r from-[#b38b6d] to-[#af8068] rounded-md w-full text-white'}>
+                        <Button type="submit" variant="outline" className={'bg-white/50 border border-white/90 rounded-md w-full font-semibold'}>
                             Log In
                         </Button>
 
@@ -94,12 +94,12 @@ const LoginPage = () => {
                         </div>
                         <Separator className="bg-white/20" />
                     </div>
-                    <Button onClick={handleGoogleLogin} variant="outline" className={'w-full rounded-md text-white bg-[#272738af]  border-white/20'}>
+                    <Button onClick={handleGoogleLogin} variant="outline" className={'w-full'}>
                         <FcGoogle />
                         Log In With Google
                     </Button>
 
-                    <span className="text-center text-neutral-400"><span>{"Don't have an account?"}</span> <Link href={'/registration'}><span className="text-[#b38b6d] font-semibold">Register</span></Link></span>
+                    <span className="text-center text-neutral-400"><span>{"Don't have an account?"}</span> <Link href={'/registration'}><span className="text-[#f7bc94] font-semibold">Register</span></Link></span>
                 </Card>
             </div>
         </div>

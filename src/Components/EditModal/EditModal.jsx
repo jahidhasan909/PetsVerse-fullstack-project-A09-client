@@ -11,6 +11,7 @@ import { authClient } from '@/lib/auth-client';
 
 
 
+
 const EditModal = ({ ownpets }) => {
 
 
@@ -47,6 +48,7 @@ const EditModal = ({ ownpets }) => {
 
         if (data) {
             toast.success('Update Update pets information !')
+            window.location.reload()
 
         }
 
@@ -60,7 +62,7 @@ const EditModal = ({ ownpets }) => {
     return (
         <div>
             <Modal className={''}>
-                <Button className={'rounded-md text-[#b38b6d] border-[#b38b6d]'} variant='outline'><MdEditLocationAlt /> Edit</Button>
+                <Button className={'w-full bg-white/40 border-white/40'} variant='outline'><MdEditLocationAlt /> Edit</Button>
                 <Modal.Backdrop>
                     <Modal.Container placement="auto">
                         <Modal.Dialog className="sm:max-w-md md:max-w-3xl rounded-md border ">

@@ -24,22 +24,25 @@ const MyListingPage = async () => {
 
 
     return (
-        <div>
-            <div className='flex'>
-                <Card>
-                    <p> total listin</p>
-                    <p>{ownListingpets.length}</p>
+        <div className='my-20 container mx-auto px-15'>
+            <h1 className='text-center text-3xl font-bold'>My Listings</h1>
+            <p className='text-center text-gray-500 text-[0.94rem] pt-2 pb-5'>View and manage all the pets you’ve added for adoption.</p>
+            <div className='grid grid-cols-3 gap-3 my-5'>
+                <Card className='bg-white/40 border border-white/40 text-center'>
+                    <p className='font-semibold text-lg'>{ownListingpets.length}</p>
+                    <p className='text-gray-500'>Total Listings</p>
                 </Card>
-                <Card>
-                    Available
-                    <p>{ownListingpets.filter(ownstatus => ownstatus.status === 'Available').length}</p>
+                <Card className='bg-white/40 border border-white/40 text-center'>
+                    <p className='font-semibold text-lg text-green-500'>{ownListingpets.filter(ownstatus => ownstatus.status === 'Available').length}</p>
+                    <p className='text-gray-500'>Available</p>
                 </Card>
-                <Card>
-                    adopted
+                <Card className='bg-white/40 border border-white/40 text-center'>
+                    <p className='font-semibold text-lg text-red-400'>{ownListingpets.filter(ownstatus => ownstatus.status === 'adopted').length}</p>
+                    <span className='text-gray-500'>Adopted</span>
                 </Card>
             </div>
 
-            <div className='grid grid-cols-4'>
+            <div className='grid grid-cols-4 gap-4'>
                 {
                     ownListingpets.map(ownpets => <OwnPetsCard key={ownpets._id} ownpets={ownpets}></OwnPetsCard>)
                 }

@@ -7,8 +7,17 @@ import { FaWpforms } from "react-icons/fa6";
 import { authClient } from '@/lib/auth-client';
 import toast from 'react-hot-toast';
 import { redirect } from 'next/navigation';
+import { useRef } from 'react';
+import { MdClear } from 'react-icons/md';
 
 const AddPetListing = () => {
+
+
+
+    const formRef = useRef(null)
+
+
+
 
     const { data, isPending } = authClient.useSession()
 
@@ -56,199 +65,208 @@ const AddPetListing = () => {
         const data = await res.json()
 
         if (data) {
-            toast.success('pets successfully')
+            toast.success('pets successfully added')
             redirect('/deshboard/my-listings')
         }
-        
+
 
     }
 
 
 
-return (
-    <div className='container mx-auto mt-35 mb-20'>
-        <h1 className='font-bold text-xl lg:text-3xl mb-5 mt-2 pl-20 text-white'>Add New Pet for Adoption</h1>
-        <Card className='rounded-md shadow-md  max-w-7xl mx-auto'>
-            <form
+    return (
+        <div className='container mx-auto my-20 '>
+            <h1 className='font-bold text-3xl lg:text-3xl  mt-2 pl-13 text-black text-center'>Add New Pet for Adoption</h1>
+            <p className='text-gray-500 pl-13 mb-7 pt-2 text-center text-[0.94rem]'>Add a loving pet and help them find a forever home.</p>
+            <Card className='rounded-md shadow-md  max-w-7xl mx-auto bg-white/50 border-white/40 border'>
+                <form
+                    ref={formRef}
+                    onSubmit={onSubmit}
+                    className="p-10 space-y-8"
+                >
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-                onSubmit={onSubmit}
-                className="p-10 space-y-8"
-            >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {/* Owner Email (Auto-filled read only) */}
+                        <div className="md:col-span-2">
+                            <TextField name="ownerEmail" isReadOnly defaultValue={user?.email}>
+                                <Label className=''>Owner Email (Read Only)</Label>
+                                <Input className="rounded-md " />
+                                <FieldError />
+                            </TextField>
+                        </div>
 
-                    {/* Owner Email (Auto-filled read only) */}
-                    <div className="md:col-span-2">
-                        <TextField name="ownerEmail" isReadOnly defaultValue={user?.email}>
-                            <Label className=''>Owner Email (Read Only)</Label>
-                            <Input className="rounded-md " />
+                        {/* Pet Name */}
+                        <TextField name="petName" isRequired>
+                            <Label className=''>Pet Name</Label>
+                            <Input placeholder="e.g., Rocky" className="rounded-md " />
                             <FieldError />
                         </TextField>
-                    </div>
 
-                    {/* Pet Name */}
-                    <TextField name="petName" isRequired>
-                        <Label className=''>Pet Name</Label>
-                        <Input placeholder="e.g., Rocky" className="rounded-md " />
-                        <FieldError />
-                    </TextField>
+                        {/* Species */}
+                        <div>
+                            <Select
+                                name="species"
+                                isRequired
+                                className="w-full"
+                                placeholder="Select species"
+                            >
+                                <Label className=''>Species</Label>
+                                <Select.Trigger className="rounded-md ">
+                                    <Select.Value />
+                                    <Select.Indicator />
+                                </Select.Trigger>
+                                <Select.Popover className={''}>
+                                    <ListBox>
+                                        <ListBox.Item id="Dog" textValue="Dog" className=''>
+                                            Dog
+                                            <ListBox.ItemIndicator className='' />
+                                        </ListBox.Item>
+                                        <ListBox.Item id="Cat" textValue="Cat" className=''>
+                                            Cat
+                                            <ListBox.ItemIndicator className='' />
+                                        </ListBox.Item>
+                                        <ListBox.Item id="Bird" textValue="Bird" className=''>
+                                            Bird
+                                            <ListBox.ItemIndicator className='' />
+                                        </ListBox.Item>
+                                        <ListBox.Item id="Rabbit" textValue="Rabbit" className=''>
+                                            Rabbit
+                                            <ListBox.ItemIndicator className='' />
+                                        </ListBox.Item>
+                                        <ListBox.Item id="Other" textValue="Other" className=''>
+                                            Other
+                                            <ListBox.ItemIndicator className='' />
+                                        </ListBox.Item>
+                                    </ListBox>
+                                </Select.Popover>
+                            </Select>
+                        </div>
 
-                    {/* Species */}
-                    <div>
-                        <Select
-                            name="species"
-                            isRequired
-                            className="w-full"
-                            placeholder="Select species"
-                        >
-                            <Label className=''>Species</Label>
-                            <Select.Trigger className="rounded-md ">
-                                <Select.Value />
-                                <Select.Indicator />
-                            </Select.Trigger>
-                            <Select.Popover className={''}>
-                                <ListBox>
-                                    <ListBox.Item id="Dog" textValue="Dog" className=''>
-                                        Dog
-                                        <ListBox.ItemIndicator className='' />
-                                    </ListBox.Item>
-                                    <ListBox.Item id="Cat" textValue="Cat" className=''>
-                                        Cat
-                                        <ListBox.ItemIndicator className='' />
-                                    </ListBox.Item>
-                                    <ListBox.Item id="Bird" textValue="Bird" className=''>
-                                        Bird
-                                        <ListBox.ItemIndicator className='' />
-                                    </ListBox.Item>
-                                    <ListBox.Item id="Rabbit" textValue="Rabbit" className=''>
-                                        Rabbit
-                                        <ListBox.ItemIndicator className='' />
-                                    </ListBox.Item>
-                                    <ListBox.Item id="Other" textValue="Other" className=''>
-                                        Other
-                                        <ListBox.ItemIndicator className='' />
-                                    </ListBox.Item>
-                                </ListBox>
-                            </Select.Popover>
-                        </Select>
-                    </div>
+                        {/* Breed */}
+                        <TextField name="breed" isRequired>
+                            <Label className=''>Breed</Label>
+                            <Input placeholder="e.g., Golden Retriever / Local" className="rounded-md " />
+                            <FieldError />
+                        </TextField>
 
-                    {/* Breed */}
-                    <TextField name="breed" isRequired>
-                        <Label className=''>Breed</Label>
-                        <Input placeholder="e.g., Golden Retriever / Local" className="rounded-md " />
-                        <FieldError />
-                    </TextField>
+                        {/* Age */}
+                        <TextField name="age" isRequired>
+                            <Label className=''>Age</Label>
+                            <Input placeholder="e.g., 2 Years / 5 Months" className="rounded-md " />
+                            <FieldError />
+                        </TextField>
 
-                    {/* Age */}
-                    <TextField name="age" isRequired>
-                        <Label className=''>Age</Label>
-                        <Input placeholder="e.g., 2 Years / 5 Months" className="rounded-md " />
-                        <FieldError />
-                    </TextField>
+                        {/* Gender */}
+                        <div>
+                            <Select
+                                name="gender"
+                                isRequired
+                                className="w-full"
+                                placeholder="Select gender"
+                            >
+                                <Label className=''>Gender</Label>
+                                <Select.Trigger className="rounded-md ">
+                                    <Select.Value />
+                                    <Select.Indicator />
+                                </Select.Trigger>
+                                <Select.Popover className={''}>
+                                    <ListBox>
+                                        <ListBox.Item id="Male" textValue="Male" className=''>
+                                            Male
+                                            <ListBox.ItemIndicator className='text-white' />
+                                        </ListBox.Item>
+                                        <ListBox.Item id="Female" textValue="Female" className=''>
+                                            Female
+                                            <ListBox.ItemIndicator className='' />
+                                        </ListBox.Item>
+                                    </ListBox>
+                                </Select.Popover>
+                            </Select>
+                        </div>
 
-                    {/* Gender */}
-                    <div>
-                        <Select
-                            name="gender"
-                            isRequired
-                            className="w-full"
-                            placeholder="Select gender"
-                        >
-                            <Label className=''>Gender</Label>
-                            <Select.Trigger className="rounded-md ">
-                                <Select.Value />
-                                <Select.Indicator />
-                            </Select.Trigger>
-                            <Select.Popover className={''}>
-                                <ListBox>
-                                    <ListBox.Item id="Male" textValue="Male" className=''>
-                                        Male
-                                        <ListBox.ItemIndicator className='text-white' />
-                                    </ListBox.Item>
-                                    <ListBox.Item id="Female" textValue="Female" className=''>
-                                        Female
-                                        <ListBox.ItemIndicator className='' />
-                                    </ListBox.Item>
-                                </ListBox>
-                            </Select.Popover>
-                        </Select>
-                    </div>
-
-                    {/* Adoption Fee */}
-                    <TextField name="adoptionFee" type="number" isRequired>
-                        <Label className=''>Adoption Fee (USD)</Label>
-                        <Input
-                            type="number"
-                            placeholder="0 for Free Adoption"
-                            className="rounded-md "
-                        />
-                        <FieldError />
-                    </TextField>
-
-                    {/* Image URL */}
-                    <div className="md:col-span-2">
-                        <TextField name="imageUrl" type="url" isRequired>
-                            <Label className=''>Image URL (imgbb/postimage)</Label>
+                        {/* Adoption Fee */}
+                        <TextField name="adoptionFee" type="number" isRequired>
+                            <Label className=''>Adoption Fee (USD)</Label>
                             <Input
-                                type="url"
-                                placeholder="https://i.ibb.co/your-image-id.jpg"
+                                type="number"
+                                placeholder="0 for Free Adoption"
                                 className="rounded-md "
                             />
                             <FieldError />
                         </TextField>
-                    </div>
 
-                    {/* Health Status */}
-                    <TextField name="healthStatus" isRequired>
-                        <Label className=''>Health Status</Label>
-                        <Input placeholder="e.g., Healthy, Regular Checkup" className="rounded-md " />
-                        <FieldError />
-                    </TextField>
+                        {/* Image URL */}
+                        <div className="md:col-span-2">
+                            <TextField name="imageUrl" type="url" isRequired>
+                                <Label className=''>Image URL (imgbb/postimage)</Label>
+                                <Input
+                                    type="url"
+                                    placeholder="https://i.ibb.co/your-image-id.jpg"
+                                    className="rounded-md "
+                                />
+                                <FieldError />
+                            </TextField>
+                        </div>
 
-                    {/* Vaccination Status */}
-                    <TextField name="vaccinationStatus" isRequired>
-                        <Label className=''>Vaccination Status</Label>
-                        <Input placeholder="e.g., Fully Vaccinated / Not Vaccinated" className="rounded-md " />
-                        <FieldError />
-                    </TextField>
-
-                    {/* Location */}
-                    <div className="md:col-span-2">
-                        <TextField name="location" isRequired>
-                            <Label className=''>Location</Label>
-                            <Input placeholder="e.g., New York, NY" className="rounded-md " />
+                        {/* Health Status */}
+                        <TextField name="healthStatus" isRequired>
+                            <Label className=''>Health Status</Label>
+                            <Input placeholder="e.g., Healthy, Regular Checkup" className="rounded-md " />
                             <FieldError />
                         </TextField>
-                    </div>
 
-                    {/* Description */}
-                    <div className="md:col-span-2">
-                        <TextField name="description" isRequired>
-                            <Label className=''>Description</Label>
-                            <TextArea
-                                placeholder="Describe the pet's personality, behavior, habits..."
-                                className="rounded-md "
-                            />
+                        {/* Vaccination Status */}
+                        <TextField name="vaccinationStatus" isRequired>
+                            <Label className=''>Vaccination Status</Label>
+                            <Input placeholder="e.g., Fully Vaccinated / Not Vaccinated" className="rounded-md " />
                             <FieldError />
                         </TextField>
-                    </div>
-                </div>
 
-                {/* Buttons */}
-                <div className='flex items-center gap-2'>
-                    <Button
-                        type="submit"
-                        variant="outline"
-                        className="rounded-md bg-linear-to-r from-[#b38b6d] to-[#af8068] text-white"
-                    >
-                        <FaWpforms />
-                        List Pet for Adoption
-                    </Button>
-                </div>
-            </form>
-        </Card>
-    </div>
-)
+                        {/* Location */}
+                        <div className="md:col-span-2">
+                            <TextField name="location" isRequired>
+                                <Label className=''>Location</Label>
+                                <Input placeholder="e.g., New York, NY" className="rounded-md " />
+                                <FieldError />
+                            </TextField>
+                        </div>
+
+                        {/* Description */}
+                        <div className="md:col-span-2">
+                            <TextField name="description" isRequired>
+                                <Label className=''>Description</Label>
+                                <TextArea
+                                    placeholder="Describe the pet's personality, behavior, habits..."
+                                    className="rounded-md "
+                                />
+                                <FieldError />
+                            </TextField>
+                        </div>
+                    </div>
+
+                    {/* Buttons */}
+                    <div className='grid grid-cols-2 gap-7'>
+                        <Button onClick={
+                            () => formRef.current.reset()
+                        } variant='outline' className={'text-red-200 rounded-md border-red-200 w-full'}>
+                            <MdClear></MdClear>
+                            Cancel
+                        </Button>
+
+                        <Button
+                            type="submit"
+                            variant="outline"
+
+                            className=" rounded-md bg-linear-to-r bg-white/70 border-white/92  w-full"
+                        >
+                            <FaWpforms />
+                            Add Pet Listing
+                        </Button>
+                    </div>
+                </form>
+            </Card>
+        </div>
+    )
 }
 
 export default AddPetListing;

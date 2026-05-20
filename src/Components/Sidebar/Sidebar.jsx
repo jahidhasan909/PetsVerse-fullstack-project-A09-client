@@ -70,7 +70,7 @@ const Sidebar = () => {
 
         <>
 
-            <div className="lg:hidden fixed top-0 left-0 z-50 w-full h-16 bg-black border-b border-white/10 flex items-center justify-between px-4">
+            <div className="lg:hidden fixed top-0 left-0 z-50 w-full h-16 bg-[#2828289b] border-b border-white/10 flex items-center justify-between px-4">
                 <h1 className="text-white text-2xl font-bold">
                     PetsVerse
                 </h1>
@@ -87,13 +87,13 @@ const Sidebar = () => {
             {open && (
                 <div
                     onClick={() => setOpen(false)}
-                    className="fixed inset-0 bg-black/60 z-40 lg:hidden"
+                    className="fixed inset-0 bg-[#282828] z-40 lg:hidden"
                 />
             )}
 
 
             <aside
-                className={`fixed top-0 left-0 z-50 h-screen w-[280px] bg-black border-r border-white/10 flex flex-col justify-between transition-all duration-300${open ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}
+                className={`fixed top-0 left-0 z-50 h-screen w-[280px] bg-[#282828] border-r border-white/10 flex flex-col justify-between transition-all duration-300${open ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}
             >
 
                 <div>
@@ -122,7 +122,7 @@ const Sidebar = () => {
                                     href={item.href}
                                     onClick={() => setOpen(false)}
                                     className={`flex items-center gap-3px-4 py-3 rounded-2xl transition-all duration-200 no-underline ${pathname === item.href
-                                        ? "bg-white text-black"
+                                        ? "bg-white/30 text-black p-1"
                                         : "text-neutral-400 hover:bg-white/10 hover:text-white"
                                         }
 `}

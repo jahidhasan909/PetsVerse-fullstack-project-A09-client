@@ -5,15 +5,15 @@ import Footer from "@/Components/Shared/Footer";
 export default function MainRootLayout({ children }) {
   return (
     <>
-  
 
-      <main className="grow">
-        {children}
-      </main>
+      <body className="min-h-full bg-[#fbcfb151]  flex flex-col">
+        <Navbar></Navbar>
+        <main className=" grow">{children}</main>
+        <Toaster />
+        <Footer></Footer>
+      </body>
 
-      <Toaster />
 
-     
     </>
   );
 }

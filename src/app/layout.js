@@ -22,12 +22,15 @@ export default function MainRootLayout({ children }) {
       lang="en"
       className={`${fredoka.className}  h-full antialiased`}
     >
-      <body className="min-h-full bg-[#fbcfb151]  flex flex-col">
-        <Navbar></Navbar>
+      <body className="min-h-full bg-[#F7EFE8] bg-linear-to-r from-[]  flex flex-col">
+        
         <main className=" grow">{children}</main>
         <Toaster />
-        <Footer></Footer>
+        
       </body>
     </html>
   );
 }
+
+// bg-white
+// bg-[#FAF4EE]

@@ -47,8 +47,10 @@ const RegistrationPage = () => {
 
 
     return (
-        <div className=" container mx-auto  my-20">
-            <Card className="max-w-2xl mx-auto">
+        <div className=" container mx-auto  my-29">
+            <h1 className="text-center font-black text-3xl">Create Your Account</h1>
+            <p className="text-center text-gray-500 text-[0.95rem] pb-5 pt-3">Join PetsVerse and start your journey to finding and caring for your perfect companion.</p>
+            <Card className="max-w-2xl mx-auto bg-white/40 border border-white/40">
                 <Form className="flex flex-col gap-4" onSubmit={onSubmit}>
                     <TextField
                         isRequired
@@ -141,13 +143,13 @@ const RegistrationPage = () => {
                         <FieldError />
                     </TextField>
                     <div className="">
-                        <Button className={'w-full'} type="submit">
+                        <Button variant="outline" className={'w-full bg-white/50 border-white/50 border'} type="submit">
                             <Check />
                             Create Account
                         </Button>
                     </div>
                 </Form>
-                <span className="text-center text-neutral-400">Already have an account? <Link href={'/login'}><span className="text-[#b38b6d] font-semibold">Log In</span></Link></span>
+                <span className="text-center text-neutral-400">Already have an account? <Link href={'/login'}><span className="text-[#f7bc94] font-semibold">Log In</span></Link></span>
             </Card>
         </div>
     );
