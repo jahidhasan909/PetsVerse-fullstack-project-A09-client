@@ -196,6 +196,8 @@ export function RequestModal({ _id }) {
                                                     {req.status === "pending" && (
                                                         <>
                                                             <Button
+                                                                variant="otuline"
+                                                                className={'bg-green-600 text-white'}
                                                                 color="success"
                                                                 onPress={() =>
                                                                     handleStatusUpdate(req._id, "approved")
@@ -205,6 +207,8 @@ export function RequestModal({ _id }) {
                                                             </Button>
 
                                                             <Button
+                                                                variant="outline"
+                                                                className={'text-red-400 border-red-400'}
                                                                 color="danger"
                                                                 onPress={() =>
                                                                     handleStatusUpdate(req._id, "rejected")
