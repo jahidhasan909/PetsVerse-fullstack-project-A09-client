@@ -45,7 +45,7 @@ const MyListingPage = async () => {
                     <p className='text-gray-500'>Available</p>
                 </Card>
                 <Card className='bg-[#FCF8F3] dark:bg-black border border-white/40 text-center'>
-                    <p className='font-semibold text-lg text-red-400'>{ownListingpets.filter(ownstatus => ownstatus.status === 'adopted').length}</p>
+                    <p className='font-semibold text-lg text-red-400'>{ownListingpets.filter(ownstatus => ownstatus.status === 'approved').length}</p>
                     <span className='text-gray-500'>Adopted</span>
                 </Card>
             </div>
