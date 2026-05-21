@@ -81,7 +81,7 @@ const EditModal = ({ ownpets }) => {
                                 >
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-                                        {/* Owner Email (Auto-filled read only) */}
+                                       
                                         <div className="md:col-span-2">
                                             <TextField name="ownerEmail" isReadOnly defaultValue={user?.email}>
                                                 <Label className=''>Owner Email (Read Only)</Label>
@@ -90,14 +90,14 @@ const EditModal = ({ ownpets }) => {
                                             </TextField>
                                         </div>
 
-                                        {/* Pet Name */}
+                                  
                                         <TextField defaultValue={petName} name="petName" isRequired>
                                             <Label className=''>Pet Name</Label>
                                             <Input placeholder="e.g., Rocky" className="rounded-md " />
                                             <FieldError />
                                         </TextField>
 
-                                        {/* Species */}
+                             
                                         <div>
                                             <Select
                                                 defaultValue={species}
@@ -138,21 +138,21 @@ const EditModal = ({ ownpets }) => {
                                             </Select>
                                         </div>
 
-                                        {/* Breed */}
+                                   
                                         <TextField defaultValue={breed} name="breed" isRequired>
                                             <Label className=''>Breed</Label>
                                             <Input placeholder="e.g., Golden Retriever / Local" className="rounded-md " />
                                             <FieldError />
                                         </TextField>
 
-                                        {/* Age */}
+                                     
                                         <TextField defaultValue={age} name="age" isRequired>
                                             <Label className=''>Age</Label>
                                             <Input placeholder="e.g., 2 Years / 5 Months" className="rounded-md " />
                                             <FieldError />
                                         </TextField>
 
-                                        {/* Gender */}
+                                       
                                         <div>
                                             <Select
                                                 defaultValue={gender}
@@ -181,7 +181,6 @@ const EditModal = ({ ownpets }) => {
                                             </Select>
                                         </div>
 
-                                        {/* Adoption Fee */}
                                         <TextField defaultValue={adoptionFee} name="adoptionFee" type="number" isRequired>
                                             <Label className=''>Adoption Fee (USD)</Label>
                                             <Input
@@ -192,7 +191,7 @@ const EditModal = ({ ownpets }) => {
                                             <FieldError />
                                         </TextField>
 
-                                        {/* Image URL */}
+                                 
                                         <div className="md:col-span-2">
                                             <TextField defaultValue={imageUrl} name="imageUrl" type="url" isRequired>
                                                 <Label className=''>Image URL (imgbb/postimage)</Label>
@@ -205,21 +204,21 @@ const EditModal = ({ ownpets }) => {
                                             </TextField>
                                         </div>
 
-                                        {/* Health Status */}
+                                        
                                         <TextField defaultValue={healthStatus} name="healthStatus" isRequired>
                                             <Label className=''>Health Status</Label>
                                             <Input placeholder="e.g., Healthy, Regular Checkup" className="rounded-md " />
                                             <FieldError />
                                         </TextField>
 
-                                        {/* Vaccination Status */}
+                                   
                                         <TextField defaultValue={vaccinationStatus} name="vaccinationStatus" isRequired>
                                             <Label className=''>Vaccination Status</Label>
                                             <Input placeholder="e.g., Fully Vaccinated / Not Vaccinated" className="rounded-md " />
                                             <FieldError />
                                         </TextField>
 
-                                        {/* Location */}
+                                    
                                         <div className="md:col-span-2">
                                             <TextField defaultValue={location} name="location" isRequired>
                                                 <Label className=''>Location</Label>
@@ -228,7 +227,7 @@ const EditModal = ({ ownpets }) => {
                                             </TextField>
                                         </div>
 
-                                        {/* Description */}
+                              
                                         <div className="md:col-span-2">
                                             <TextField defaultValue={Description} name="description" isRequired>
                                                 <Label className=''>Description</Label>
@@ -241,12 +240,12 @@ const EditModal = ({ ownpets }) => {
                                         </div>
                                     </div>
 
-                                    {/* Buttons */}
+                                    
                                     <div className='flex items-center gap-2'>
                                         <Button
                                             type="submit"
                                             variant="outline"
-                                            className="rounded-md bg-linear-to-r from-[#b38b6d] to-[#af8068] text-white"
+                                            className="w-full  bg-[#D97706] text-white"
                                         >
 
                                             Save Pet for Adoption
