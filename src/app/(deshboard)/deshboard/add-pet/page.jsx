@@ -6,13 +6,13 @@ import { FaWpforms } from "react-icons/fa6";
 
 import { authClient } from '@/lib/auth-client';
 import toast from 'react-hot-toast';
-import { redirect } from 'next/navigation';
+
 import { useRef } from 'react';
 import { MdClear } from 'react-icons/md';
 import { DotSpinner } from 'ldrs/react'
 import 'ldrs/react/DotSpinner.css'
 import { IconPaw } from '@tabler/icons-react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const AddPetListing = () => {
 
@@ -98,7 +98,6 @@ const AddPetListing = () => {
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-                        {/* Owner Email (Auto-filled read only) */}
                         <div className="md:col-span-2">
                             <TextField name="ownerEmail" isReadOnly defaultValue={user?.email}>
                                 <Label className=''>Owner Email (Read Only)</Label>
@@ -107,14 +106,13 @@ const AddPetListing = () => {
                             </TextField>
                         </div>
 
-                        {/* Pet Name */}
                         <TextField name="petName" isRequired>
                             <Label className=''>Pet Name</Label>
                             <Input placeholder="e.g., Rocky" className="rounded-md " />
                             <FieldError />
                         </TextField>
 
-                        {/* Species */}
+                   
                         <div>
                             <Select
                                 name="species"
@@ -154,21 +152,19 @@ const AddPetListing = () => {
                             </Select>
                         </div>
 
-                        {/* Breed */}
                         <TextField name="breed" isRequired>
                             <Label className=''>Breed</Label>
                             <Input placeholder="e.g., Golden Retriever / Local" className="rounded-md " />
                             <FieldError />
                         </TextField>
 
-                        {/* Age */}
+                      
                         <TextField name="age" isRequired>
                             <Label className=''>Age</Label>
                             <Input placeholder="e.g., 2 Years / 5 Months" className="rounded-md " />
                             <FieldError />
                         </TextField>
 
-                        {/* Gender */}
                         <div>
                             <Select
                                 name="gender"
@@ -196,7 +192,7 @@ const AddPetListing = () => {
                             </Select>
                         </div>
 
-                        {/* Adoption Fee */}
+                  
                         <TextField name="adoptionFee" type="number" isRequired>
                             <Label className=''>Adoption Fee (USD)</Label>
                             <Input
@@ -207,7 +203,6 @@ const AddPetListing = () => {
                             <FieldError />
                         </TextField>
 
-                        {/* Image URL */}
                         <div className="md:col-span-2">
                             <TextField name="imageUrl" type="url" isRequired>
                                 <Label className=''>Image URL (imgbb/postimage)</Label>
@@ -220,21 +215,20 @@ const AddPetListing = () => {
                             </TextField>
                         </div>
 
-                        {/* Health Status */}
                         <TextField name="healthStatus" isRequired>
                             <Label className=''>Health Status</Label>
                             <Input placeholder="e.g., Healthy, Regular Checkup" className="rounded-md " />
                             <FieldError />
                         </TextField>
 
-                        {/* Vaccination Status */}
+                   
                         <TextField name="vaccinationStatus" isRequired>
                             <Label className=''>Vaccination Status</Label>
                             <Input placeholder="e.g., Fully Vaccinated / Not Vaccinated" className="rounded-md " />
                             <FieldError />
                         </TextField>
 
-                        {/* Location */}
+                      
                         <div className="md:col-span-2">
                             <TextField name="location" isRequired>
                                 <Label className=''>Location</Label>
@@ -243,7 +237,6 @@ const AddPetListing = () => {
                             </TextField>
                         </div>
 
-                        {/* Description */}
                         <div className="md:col-span-2">
                             <TextField name="description" isRequired>
                                 <Label className=''>Description</Label>
@@ -256,7 +249,6 @@ const AddPetListing = () => {
                         </div>
                     </div>
 
-                    {/* Buttons */}
                     <div className='grid grid-cols-2 gap-7'>
                         <Button onClick={
                             () => formRef.current.reset()
