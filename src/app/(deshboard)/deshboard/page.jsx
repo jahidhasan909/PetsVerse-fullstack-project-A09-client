@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Button, Card, Table } from "@heroui/react";
+import { Button, Card, Chip, Table } from "@heroui/react";
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
 import Link from 'next/link';
@@ -67,7 +67,7 @@ const DeshBoardHomePage = async () => {
 
             <div className="w-full overflow-hidden rounded-2xl border border-gray-200 bg-white">
 
-           
+
                 <div className="hidden lg:block overflow-x-auto">
                     <table className="w-full text-sm text-left">
                         <thead className="bg-gray-100 border-b border-gray-200">
@@ -102,9 +102,7 @@ const DeshBoardHomePage = async () => {
                                         ).toLocaleDateString()}
                                     </td>
 
-                                    <td className="px-5 py-4 capitalize">
-                                        {apotpets.status}
-                                    </td>
+                                    <p className="absolute top-0 right-0 p-2 text-md">{apotpets?.status === 'Available' ? <Chip className='text-green-500' color="success">{apotpets?.status}</Chip> : apotpets?.status === 'panding' ? <Chip className="text-orange-400" color="warning">{apotpets?.status}</Chip> : <Chip color="success">{apotpets?.status}</Chip>}</p>
 
                                     <td className="px-5 py-4">
                                         <div className="flex gap-2">
@@ -126,7 +124,7 @@ const DeshBoardHomePage = async () => {
                     </table>
                 </div>
 
-           
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 lg:hidden">
 
                     {adoptPetInformation.map((apotpets) => (

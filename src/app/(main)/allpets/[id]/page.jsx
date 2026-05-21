@@ -54,7 +54,7 @@ const DetailsPage = async ({ params }) => {
                                 className="w-full h-[420px] object-cover rounded-2xl"
                             />
 
-                            <p className="absolute top-0 right-0 p-2 text-md">{expectedPets?.status === 'Available' ? <Chip color="success">{expectedPets?.status}</Chip> : expectedPets?.status === 'panding' ? <Chip color="warning">{expectedPets?.status}</Chip> : <Chip color="success">{expectedPets?.status}</Chip>}</p>
+                            <p className="absolute top-0 right-0 p-2 text-md">{expectedPets?.status === 'Available' ? <Chip className='text-green-500' color="success">{expectedPets?.status}</Chip> : expectedPets?.status === 'panding' ? <Chip className="text-orange-400" color="warning">{expectedPets?.status}</Chip> : <Chip color="success">{expectedPets?.status}</Chip>}</p>
                         </div>
 
                         <div className="p-7 space-y-7">

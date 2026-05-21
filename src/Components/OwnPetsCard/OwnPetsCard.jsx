@@ -15,7 +15,7 @@ const OwnPetsCard = ({ ownpets }) => {
         <div>
             <Card variant="" className={'rounded-md  bg-[#FCF8F3] dark:bg-black border-white/30 border'}>
                 <Image src={ownpets?.imageUrl} className='w-full object-cover relative overflow-hidden rounded-md h-[230px]' height={230} width={250} alt={ownpets?.petName}></Image>
-                <p className=" absolute p-2 text-md">{ownpets?.status === 'Available' ? <Chip color="success">{ownpets?.status}</Chip> : ownpets?.status === 'panding' ? <Chip color="warning">{ownpets?.status}</Chip> : <Chip color="success">{ownpets?.status}</Chip>}</p>
+                <p className=" absolute p-2 text-md">{ownpets?.status === 'Available' ? <Chip className='text-green-500' color="success">{ownpets?.status}</Chip> : ownpets?.status === 'panding' ? <Chip className='text-orange-400' color="warning">{ownpets?.status}</Chip> : <Chip color="success">{ownpets?.status}</Chip>}</p>
                 <Card.Header className='p-2'>
                     <div className=' space-y-2'>
                         <Card.Title className='text-[1.25rem]'>{ownpets?.petName}</Card.Title>
