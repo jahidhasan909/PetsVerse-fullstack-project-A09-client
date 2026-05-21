@@ -12,13 +12,14 @@ import { MdClear } from 'react-icons/md';
 import { DotSpinner } from 'ldrs/react'
 import 'ldrs/react/DotSpinner.css'
 import { IconPaw } from '@tabler/icons-react';
+import { useRouter } from 'next/router';
 
 const AddPetListing = () => {
 
 
 
     const formRef = useRef(null)
-
+    const router = useRouter()
 
 
 
@@ -65,7 +66,7 @@ const AddPetListing = () => {
 
         }
 
-        const res = await fetch('https://pets-verse-fullstack-project-a09-cl.vercel.app/pets', {
+        const res = await fetch('https://pets-verse-fullstack-project-a09-se.vercel.app/pets', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -77,7 +78,7 @@ const AddPetListing = () => {
 
         if (data) {
             toast.success('pets successfully added')
-            redirect('/deshboard/my-listings')
+            router.push('/deshboard/my-listings')
         }
 
 
@@ -270,7 +271,7 @@ const AddPetListing = () => {
 
                             className=" bg-linear-to-r bg-[#D97706] text-white border-white/92  w-full"
                         >
-                              <IconPaw stroke={2} />
+                            <IconPaw stroke={2} />
                             Add Pet Listing
                         </Button>
                     </div>
