@@ -32,5 +32,3 @@ export default function MainRootLayout({ children }) {
   );
 }
 
-// bg-white
-// bg-[#FAF4EE]

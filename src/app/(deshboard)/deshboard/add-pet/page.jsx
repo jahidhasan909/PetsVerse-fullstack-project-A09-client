@@ -9,6 +9,8 @@ import toast from 'react-hot-toast';
 import { redirect } from 'next/navigation';
 import { useRef } from 'react';
 import { MdClear } from 'react-icons/md';
+import { DotSpinner } from 'ldrs/react'
+import 'ldrs/react/DotSpinner.css'
 
 const AddPetListing = () => {
 
@@ -30,7 +32,16 @@ const AddPetListing = () => {
 
 
     if (isPending) {
-        return <h1>loading..</h1>
+        return (
+            <div className='flex justify-center items-center'>
+
+                <DotSpinner
+                    size="40"
+                    speed="0.9"
+                    color="black"
+                />
+            </div>
+        )
     }
 
 

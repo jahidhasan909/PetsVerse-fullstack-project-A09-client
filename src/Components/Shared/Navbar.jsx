@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation";
 import { Sun, ArrowRightFromSquare, Gear, Persons, ChevronDown } from '@gravity-ui/icons';
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
+import { DotSpinner } from 'ldrs/react'
+import 'ldrs/react/DotSpinner.css'
 
 
 
@@ -30,7 +32,17 @@ export function Navbar() {
 
 
     if (isPending) {
-        return <h1>loading..</h1>
+        return (
+            <div className='flex justify-center items-center'>
+
+                <DotSpinner
+
+                    size="40"
+                    speed="0.9"
+                    color="black"
+                />
+            </div>
+        )
     }
 
 

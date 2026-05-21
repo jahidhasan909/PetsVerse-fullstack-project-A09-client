@@ -4,6 +4,8 @@ import { ArrowRightFromSquare, Sun } from '@gravity-ui/icons';
 import { Avatar, Dropdown, Label } from '@heroui/react';
 import Link from 'next/link';
 import React from 'react';
+import { DotSpinner } from 'ldrs/react'
+import 'ldrs/react/DotSpinner.css'
 
 const SidebarNav = () => {
 
@@ -16,11 +18,19 @@ const SidebarNav = () => {
     const user = data?.user
     console.log(user);
 
-
     if (isPending) {
-        return <h1>loading..</h1>
-    }
+        return (
+            <div className='flex justify-center items-center'>
 
+                <DotSpinner
+
+                    size="40"
+                    speed="0.9"
+                    color="black"
+                />
+            </div>
+        )
+    }
 
 
 
