@@ -4,6 +4,7 @@ import { Form, TextField, Label, Input, FieldError, Description, Button, Card, D
 import { IconHeart, IconUser, IconMail, IconCalendar, IconPaw } from "@tabler/icons-react";
 import { authClient } from '@/lib/auth-client';
 import toast from 'react-hot-toast';
+import { DotSpinner } from 'ldrs/react';
 
 
 const DetailsForm = ({ expectedPets }) => {
@@ -21,22 +22,10 @@ const DetailsForm = ({ expectedPets }) => {
 
     const isAdopted = expectedPets?.status === 'adopted';
 
-    if (isAdopted) {
-        <div className='min-h-[400px] flex items-center justify-center border rounded-xl'>
-
-            <div className='text-center space-y-3'>
-
-                <h2 className='text-2xl font-bold text-green-500'>
-                    This pet is already adopted
-                </h2>
-
-                <p className='text-gray-400'>
-                    The owner has already approved an adoption request.
-                </p>
-
-            </div>
-
-        </div>
+    const handleAdoptionClick = () => {
+        if (isAdopted) {
+            return toast.error('This pet is already adopted!')
+        }
     }
 
     if (isOwner) {
@@ -50,7 +39,16 @@ const DetailsForm = ({ expectedPets }) => {
     }
 
     if (isPending) {
-        return <h1>loading..</h1>
+        return (
+            <div className='flex items-center justify-center min-h-screen'>
+                <DotSpinner
+
+                    size="40"
+                    speed="0.9"
+                    color="black"
+                />
+            </div>
+        )
     }
 
 
@@ -220,7 +218,7 @@ const DetailsForm = ({ expectedPets }) => {
 
                         <textarea
                             name="message"
-                            placeholder="Tell the owner why you'd be a great match for Destiny Drake..."
+                            placeholder="Tell the owner why you'd be a great match ..."
                             rows={4}
                             className="w-full border  p-3 rounded-lg text-black text-sm bg-white focus:border-neutral-700 outline-none transition-colors resize-y min-h-[90px]"
                         />
@@ -231,11 +229,12 @@ const DetailsForm = ({ expectedPets }) => {
 
                     <div className="flex gap-3 w-full mt-2">
                         <Button
+                            onClick={handleAdoptionClick}
                             type="submit"
                             className="flex-1 bg-[#D97706]  font-bold text-md py-6 rounded-lg  transition-colors border border-white/40 flex items-center justify-center gap-2"
                         >
                             <IconPaw size={18} />
-                            Adopt Destiny Drake
+                            Adopt {expectedPets?.petName}
                         </Button>
                     </div>
 
