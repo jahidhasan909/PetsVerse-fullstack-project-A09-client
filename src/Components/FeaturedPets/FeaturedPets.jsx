@@ -33,7 +33,7 @@ function AppendDots() {
     useEffect(() => {
         fetch(`http://localhost:8000/allpets`)
             .then(res => res.json())
-            .then(data => setFeaturedData(data.slice(0, 5)))
+            .then(data => setFeaturedData(data.slice(0, 6)))
     }, [])
 
 
