@@ -9,7 +9,7 @@ const Footer = () => {
     return (
         <div className='bg-[#282828] '>
             <footer >
-                <div className="grid grid-cols-5  container mx-auto gap-6 p-14">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5  container mx-auto gap-6 p-14">
 
                     <aside>
 
@@ -39,7 +39,7 @@ const Footer = () => {
                     </aside>
 
 
-                    <Image src={'https://i.ibb.co.com/4g1b19w2/Gemini-Generated-Image-ae5gg9ae5gg9ae5g-Photoroom-removebg-preview.png'} width={70} height={60} className='h-[40px] -rotate-45  object-contain' alt=''></Image>
+                    <Image src={'https://i.ibb.co.com/4g1b19w2/Gemini-Generated-Image-ae5gg9ae5gg9ae5g-Photoroom-removebg-preview.png'} width={70} height={60} className='h-[40px] hidden md:block -rotate-45  object-contain' alt=''></Image>
 
 
 

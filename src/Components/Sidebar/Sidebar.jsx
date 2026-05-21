@@ -1,10 +1,8 @@
-"use client"
-import React, { useState } from 'react';
+"use client";
 
-
+import React, { useEffect, useState } from "react";
 
 import {
-    LayoutDashboard,
     PawPrint,
     Heart,
     LogOut,
@@ -12,12 +10,13 @@ import {
     X,
     GitPullRequestCreateArrow,
 } from "lucide-react";
-import { redirect, usePathname } from 'next/navigation';
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowRightFromSquare } from '@gravity-ui/icons';
-import { Avatar, Dropdown, Label } from '@heroui/react';
-import { authClient } from '@/lib/auth-client';
+
+import { usePathname, useRouter } from "next/navigation";
+
+import Image from "next/image";
+import Link from "next/link";
+
+import { authClient } from "@/lib/auth-client";
 
 const navItems = [
     {
@@ -35,45 +34,34 @@ const navItems = [
         href: "/deshboard/my-listings",
         icon: Heart,
     },
-
 ];
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const Sidebar = () => {
     const pathname = usePathname();
-
-
+    const router = useRouter();
 
     const [open, setOpen] = useState(false);
 
+    useEffect(() => {
+        if (window.innerWidth >= 1024) {
+            setOpen(true);
+        }
+    }, []);
 
-    const handlSingout = () => {
-        authClient.signOut()
-        redirect('/')
-    }
-
-
+    const handlSingout = async () => {
+        await authClient.signOut();
+        router.push("/");
+    };
 
     return (
-
         <>
 
-            <div className="lg:hidden fixed top-0 left-0 z-50 w-full h-16 bg-[#2828289b] border-b border-white/10 flex items-center justify-between px-4">
-                <h1 className="text-white text-2xl font-bold">
-                    PetsVerse
-                </h1>
+            <div className="lg:hidden fixed top-0 left-0 z-50 w-full h-16 bg-[#282828f0] border-b border-white/10 flex items-center justify-between px-4 backdrop-blur-md">
+                <Link href={"/"} className="no-underline">
+                    <h1 className="text-white text-2xl font-bold">
+                        PetsVerse
+                    </h1>
+                </Link>
 
                 <button
                     onClick={() => setOpen(!open)}
@@ -87,32 +75,39 @@ const Sidebar = () => {
             {open && (
                 <div
                     onClick={() => setOpen(false)}
-                    className="fixed inset-0 bg-[#282828] z-40 lg:hidden"
+                    className="fixed inset-0 bg-black/50 z-40 lg:hidden"
                 />
             )}
 
 
             <aside
-                className={`fixed top-0 left-0 z-50 h-screen w-[280px] bg-[#282828] border-r border-white/10 flex flex-col justify-between transition-all duration-300${open ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}
+                className={`fixed top-0 left-0 z-50 h-screen w-[280px] bg-[#282828] border-r border-white/10 flex flex-col justify-between transition-all duration-300 ${open ? "translate-x-0" : "-translate-x-full"
+                    } lg:translate-x-0`}
             >
-
                 <div>
 
-                    <div className="h-20 flex gap-12 justify-center items-center px-6 border-b border-white/10">
-                        <Link href="/" className={'no-underline'}>
+                    <div className="h-20 flex items-center justify-between px-6 border-b border-white/10">
+                        <Link href="/" className="no-underline">
                             <div className="flex items-center gap-2">
-                                <Image src={'https://i.ibb.co.com/Ldd9yZMf/pets-1-removebg-preview.png'} height={50} width={40} className="w-full h-[36px]" alt="logo"></Image>
-                                <h1 className=" uppercase pt-2 text-white text-2xl font-bold">PetsVerse</h1>
+                                <Image
+                                    src="https://i.ibb.co.com/Ldd9yZMf/pets-1-removebg-preview.png"
+                                    height={50}
+                                    width={40}
+                                    className="h-[36px] w-auto"
+                                    alt="logo"
+                                />
+
+                                <h1 className="uppercase pt-1 text-white text-2xl font-bold">
+                                    PetsVerse
+                                </h1>
                             </div>
                         </Link>
 
-
-                        <span className='text-white text-[8px] bg-white/30 border border-white/30 rounded-full mt-2 p-1'>Dashboard</span>
-
-
+                        
                     </div>
 
-                    <div className="p-4 space-y-2 text-white">
+
+                    <div className="p-4 space-y-2 mt-3">
                         {navItems.map((item) => {
                             const Icon = item.icon;
 
@@ -120,16 +115,19 @@ const Sidebar = () => {
                                 <Link
                                     key={item.href}
                                     href={item.href}
-                                    onClick={() => setOpen(false)}
-                                    className={`flex items-center gap-3px-4 py-3 rounded-2xl transition-all duration-200 no-underline ${pathname === item.href
-                                        ? "bg-white/30 text-black p-1"
-                                        : "text-neutral-400 hover:bg-white/10 hover:text-white"
+                                    onClick={() => {
+                                        if (window.innerWidth < 1024) {
+                                            setOpen(false);
                                         }
-`}
+                                    }}
+                                    className={`flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-200 no-underline ${pathname === item.href
+                                            ? "bg-white text-black"
+                                            : "text-neutral-400 hover:bg-white/10 hover:text-white"
+                                        }`}
                                 >
                                     <Icon size={20} />
 
-                                    <span className="text-white pl-2">
+                                    <span className="font-medium">
                                         {item.title}
                                     </span>
                                 </Link>
@@ -141,13 +139,12 @@ const Sidebar = () => {
 
                 <div className="p-4 border-t border-white/10">
                     <button
+                        onClick={handlSingout}
                         className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-neutral-400 hover:bg-white hover:text-black transition-all duration-200"
                     >
                         <LogOut size={20} />
 
-                        <span onClick={handlSingout} className="font-medium">
-                            Logout
-                        </span>
+                        <span className="font-medium">Logout</span>
                     </button>
                 </div>
             </aside>

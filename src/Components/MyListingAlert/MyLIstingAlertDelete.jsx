@@ -45,11 +45,11 @@ const MyListingAlertDeletd = ({ ownpets }) => {
                                 <AlertDialog.Heading>Delete Pets  permanently?</AlertDialog.Heading>
                             </AlertDialog.Header>
                             <AlertDialog.Footer>
-                                <Button className={'rounded-md'} slot="close" variant="tertiary">
+                                <Button className={''} slot="close" variant="tertiary">
                                     Cancel
                                 </Button>
                                 <Button onClick={handleDelete} className={'rounded-full'} variant="danger">
-                                    Delete Adoption
+                                    Delete Pets
                                 </Button>
                             </AlertDialog.Footer>
                         </AlertDialog.Dialog>

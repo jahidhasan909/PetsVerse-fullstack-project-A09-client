@@ -27,7 +27,7 @@ const DetailsPage = async ({ params }) => {
 
     return (
         <section className="max-w-11/12 mx-auto py-28">
-            <div className="mx-auto px-10">
+            <div className="mx-auto lg:px-10">
 
 
                 <Link href={"/allpets"}>

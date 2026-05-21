@@ -25,7 +25,7 @@ const SuccessStories = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
-                className='grid grid-cols-2 gap-3 mb-3'
+                className='grid grid-cols-1 lg:grid-cols-2 gap-3 mb-3'
             >
 
 
@@ -45,7 +45,7 @@ const SuccessStories = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
-                className='grid grid-cols-2 gap-3 mb-3'
+                className='grid grid-cols-1 lg:grid-cols-2 gap-3 mb-3'
             >
                 <MomentSlider></MomentSlider>
                 <Card className='flex justify-center bg-[#FCF8F3] dark:bg-black border border-white/40'>

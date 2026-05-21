@@ -19,7 +19,7 @@ const MomentSlider = () => {
                     disableOnInteraction: false,
                 }}
                 loop={true}
-                className="w-[500px] h-[300px] z-0"
+                className="w-[350px] md:w-[500px] h-[300px] z-0"
             >
                 <SwiperSlide>
                     <Image width={770} height={600} alt="" src="https://plus.unsplash.com/premium_photo-1681843815216-f50fc50d0b8a" className="h-[300px] object-cover w-full rounded-2xl" />

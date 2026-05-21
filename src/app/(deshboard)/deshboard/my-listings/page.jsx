@@ -32,10 +32,10 @@ const MyListingPage = async () => {
 
 
     return (
-        <div className='my-20 container mx-auto px-15'>
+        <div className='my-20 container mx-auto lg:px-15'>
             <h1 className='text-center text-3xl font-bold'>My Listings</h1>
             <p className='text-center text-gray-500 text-[0.94rem] pt-2 pb-5'>View and manage all the pets you’ve added for adoption.</p>
-            <div className='grid grid-cols-3 gap-3 my-5'>
+            <div className='grid grid-cols-2 lg:grid-cols-3 gap-3 my-5'>
                 <Card className='bg-[#FCF8F3] dark:bg-black border border-white/40 text-center'>
                     <p className='font-semibold text-lg'>{ownListingpets.length}</p>
                     <p className='text-gray-500'>Total Listings</p>
@@ -50,7 +50,7 @@ const MyListingPage = async () => {
                 </Card>
             </div>
 
-            <div className='grid grid-cols-4 gap-4'>
+            <div className='grid grid-cols-1 lg:grid-cols-4 gap-4'>
                 {
                     ownListingpets.map(ownpets => <OwnPetsCard key={ownpets._id} ownpets={ownpets}></OwnPetsCard>)
                 }

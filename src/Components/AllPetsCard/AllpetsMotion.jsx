@@ -33,7 +33,7 @@ const AllpetsMotion = ({ pets }) => {
             <p className='text-center pt-2 pb-5 text-gray-500'>Browse lovable pets ready for adoption and find the perfect furry friend to brighten your life.</p>
 
 
-            <div className='flex  justify-between bg-[#FCF8F3] dark:bg-black border border-white/40 rounded-2xl p-4 my-7'>
+            <div className='grid grid-cols-1 gap-1  md:flex  justify-between bg-[#FCF8F3] dark:bg-black border border-white/40 rounded-2xl p-4 my-7'>
                 <SearchField name="search">
                     <SearchField.Group>
                         <SearchField.SearchIcon />
@@ -81,7 +81,7 @@ const AllpetsMotion = ({ pets }) => {
                     </Dropdown.Popover>
                 </Dropdown>
             </div>
-            <div className='grid grid-cols-4 gap-4'>
+            <div className='grid grid-cols-1 lg:grid-cols-4 gap-4'>
                 {
                     allPets.map((pet, index) => <motion.div
                         initial={{ opacity: 0, y: 40 }}

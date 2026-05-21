@@ -6,7 +6,7 @@ import React from 'react';
 
 const PetAdoptionBanner = () => {
     return (
-        <div className='my-10 max-w-11/12 bg-[#f28d2813] mx-auto items-center gap-4 flex justify-between p-12  rounded-2xl'>
+        <div className='my-10 max-w-11/12 bg-[#f28d2813] mx-auto items-center gap-4 grid grid-cols-1 md:flex justify-between p-12  rounded-2xl'>
 
             <div className='space-y-2'>
                 <h1 className='text-2xl font-semibold'>Your Perfect Pet Is Waiting</h1>
@@ -16,7 +16,7 @@ const PetAdoptionBanner = () => {
             <div className='rounded-full'>
                 <Image src={'https://i.ibb.co.com/7dYVYgFR/Chat-GPT-Image-May-19-2026-at-03-10-29-AM-removebg-preview.png'} width={100} height={220} className=' h-[200px]  w-[200px]' alt='bannerimg'></Image>
             </div>
-            <Image src={'https://i.ibb.co.com/Fbg9MGPM/pets-1-removebg-preview.png'} className='rotate-45 mt-28' width={40} height={40} alt=''></Image>
+            <Image src={'https://i.ibb.co.com/Fbg9MGPM/pets-1-removebg-preview.png'} className='hidden md:block rotate-45 mt-28' width={40} height={40} alt=''></Image>
         </div>
     );
 };

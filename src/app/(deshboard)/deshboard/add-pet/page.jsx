@@ -88,8 +88,8 @@ const AddPetListing = () => {
 
     return (
         <div className='container mx-auto my-20 '>
-            <h1 className='font-bold text-3xl lg:text-3xl  mt-2 pl-13 text-black text-center'>Add New Pet for Adoption</h1>
-            <p className='text-gray-500 pl-13 mb-7 pt-2 text-center text-[0.94rem]'>Add a loving pet and help them find a forever home.</p>
+            <h1 className='font-bold text-xl lg:text-3xl  mt-2 lg:pl-13 text-black text-center'>Add New Pet for Adoption</h1>
+            <p className='text-gray-500 lg:pl-13 mb-7 pt-2 text-center lg:text-[0.94rem]'>Add a loving pet and help them find a forever home.</p>
             <Card className='rounded-md shadow-md  max-w-7xl mx-auto bg-[#FCF8F3] dark:bg-black border-white/40 border'>
                 <form
                     ref={formRef}

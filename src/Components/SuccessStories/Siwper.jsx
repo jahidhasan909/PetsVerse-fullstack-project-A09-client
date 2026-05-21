@@ -19,7 +19,7 @@ const ImageSlider = () => {
                 disableOnInteraction: false,
             }}
             loop={true}
-            className="w-[500px] h-[300px] z-0"
+            className="w-[350px] md:w-[500px] h-[300px] z-0"
         >
             <SwiperSlide>
                 <Image width={770} height={600} alt="" src="https://images.unsplash.com/photo-1554956615-1ba6dc39921b" className="h-[300px] object-cover w-full rounded-2xl" />

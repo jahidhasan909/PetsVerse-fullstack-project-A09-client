@@ -84,8 +84,8 @@ export function Navbar() {
 
                         <Link href="/" className={'no-underline'}>
                             <div className="flex items-center gap-2">
-                                <Image src={'https://i.ibb.co.com/Ldd9yZMf/pets-1-removebg-preview.png'} height={50} width={40} className="w-full h-[36px]" alt="logo"></Image>
-                                <h1 className=" uppercase pt-2 text-white text-2xl font-bold">PetsVerse</h1>
+                                <Image src={'https://i.ibb.co.com/Ldd9yZMf/pets-1-removebg-preview.png'} height={50} width={40} className="w-full h-[22px] md:h-[36px]" alt="logo"></Image>
+                                <h1 className=" uppercase pt-2 text-white text-md md:text-2xl font-bold">PetsVerse</h1>
                             </div>
                         </Link>
                     </div>
@@ -113,7 +113,7 @@ export function Navbar() {
 
 
                     <ul className=" items-center gap-3 flex">
-                      
+
                         <ThemeSwitch></ThemeSwitch>
 
 
@@ -125,7 +125,7 @@ export function Navbar() {
                                             <Avatar.Image referrerPolicy="no-referrer" alt={user?.name} src={user?.image} />
                                             <Avatar.Fallback>{user?.name.charAt(0, 2)}</Avatar.Fallback>
                                         </Avatar>
-                                        <span className="text-white font-semibold text-lg pl-0.5">{user?.name.slice(0, 5)}</span>
+                                        <span className="text-white font-semibold md:text-lg pl-0.5">{user?.name.slice(0, 5)}</span>
                                         <span className="text-white"><ChevronDown></ChevronDown></span>
                                     </Dropdown.Trigger>
                                     <Dropdown.Popover>
@@ -172,11 +172,14 @@ export function Navbar() {
                 {isMenuOpen && (
                     <div className="border-t border-separator  lg:hidden">
                         <ul className="flex flex-col gap-2 p-4 text-white bg-[#272738]">
-                            <li><Link className={'text-white'} href="/">Home</Link></li>
-                            <li><Link className={'text-white'} href="/profile">Profile</Link></li>
-                            <li><Link className={'text-white'} href="/destination">Destinations</Link></li>
-                            <li><Link className={'text-white'} href="/mybooking">My Bookings</Link></li>
-                            <li><Link className={'text-white'} href="/add-destination">Add Destinations</Link></li>
+                            <div className="">
+                                <Link className={pathname === '/' ? 'py-2  text-[#D97706] no-underline font-bold text-[13px]' : 'py-2 no-underline text-neutral-400 font-semibold text-[13px]'} href={'/'}>Home</Link>
+
+                            </div>
+                            <div className="">
+                                <Link className={pathname === '/allpets' ? 'py-2 text-[#D97706] no-underline font-bold text-[13px]' : 'py-2 no-underline text-neutral-400  font-semibold text-[13px]'} href={'/allpets'}> All Pets</Link>
+
+                            </div>
                         </ul>
                     </div>
                 )}

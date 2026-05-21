@@ -24,7 +24,7 @@ const PetCareTips = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
-                className='grid grid-cols-2 gap-4 mt-5'
+                className='grid grid-cols-1 lg:grid-cols-2 gap-4 mt-5'
             >
                 <Card className='bg-[#FCF8F3] dark:bg-black border border-white/30 '>
                     <h1 className='text-lg font-semibold'>Veterinary Care</h1>

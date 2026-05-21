@@ -39,12 +39,12 @@ const DeshBoardHomePage = async () => {
 
 
     return (
-        <div className='my-26 container mx-auto px-20'>
+        <div className='my-26 container mx-auto lg:px-20'>
             <h1 className='text-3xl font-bold'>My Adoption Requests</h1>
             <p className='text-gray-500 pb-5 pt-2'>Keep track of your pet adoption requests.</p>
 
 
-            <div className='grid grid-cols-4 gap-2 my-5'>
+            <div className='grid grid-cols-2 lg:grid-cols-4 gap-2 my-5'>
                 <Card className='bg-[#FCF8F3] dark:bg-black border border-white/40 text-center'>
                     <h1 className='font-semibold text-lg'>{adoptPetInformation.length}</h1>
                     <p className='text-gray-500'>Total</p>
@@ -62,54 +62,152 @@ const DeshBoardHomePage = async () => {
                     <p className='text-gray-500'>Rejected</p>
                 </Card>
             </div>
-            <Table>
-                <Table.ScrollContainer>
-                    <Table.Content aria-label="Team members" className="min-w-[600px]">
-                        <Table.Header>
-                            <Table.Column isRowHeader>Pet Name</Table.Column>
-                            <Table.Column>Request Date</Table.Column>
-                            <Table.Column>Pickup Date</Table.Column>
-                            <Table.Column>Status</Table.Column>
-                            <Table.Column className={'pl-40'}>Actions</Table.Column>
-                        </Table.Header>
-                        <Table.Body className={''}>
-                            {
-                                adoptPetInformation.map(apotpets =>
 
-                                    <Table.Row key={apotpets._id}>
 
-                                        <Table.Cell>{apotpets.petsName}</Table.Cell>
-                                        <Table.Cell>{new Date(apotpets.createdAt).toLocaleDateString('en-US', {
-                                            weekday: 'long',
-                                            year: 'numeric',
-                                            month: 'long',
-                                            day: 'numeric'
-                                        })}</Table.Cell>
-                                        <Table.Cell>{new Date(apotpets.adoptionDate).toLocaleDateString('en-US', {
-                                            weekday: 'long',
-                                            year: 'numeric',
-                                            month: 'long',
-                                            day: 'numeric'
-                                        })}</Table.Cell>
-                                        <Table.Cell>{apotpets.status}</Table.Cell>
-                                        <Table.Cell className={'flex gap-3 pl-40'}>
-                                            <Link href={`/allpets/${apotpets?.petsId}`}><Button variant='outline'>View</Button></Link>
-                                            {
-                                                apotpets.status !== "adopted" &&
+
+            <div className="w-full overflow-hidden rounded-2xl border border-gray-200 bg-white">
+
+           
+                <div className="hidden lg:block overflow-x-auto">
+                    <table className="w-full text-sm text-left">
+                        <thead className="bg-gray-100 border-b border-gray-200">
+                            <tr>
+                                <th className="px-5 py-4 font-semibold">Pet Name</th>
+                                <th className="px-5 py-4 font-semibold">Request Date</th>
+                                <th className="px-5 py-4 font-semibold">Pickup Date</th>
+                                <th className="px-5 py-4 font-semibold">Status</th>
+                                <th className="px-5 py-4 font-semibold">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {adoptPetInformation.map((apotpets) => (
+                                <tr
+                                    key={apotpets._id}
+                                    className="border-b border-gray-100 hover:bg-gray-50"
+                                >
+                                    <td className="px-5 py-4">
+                                        {apotpets.petsName}
+                                    </td>
+
+                                    <td className="px-5 py-4">
+                                        {new Date(
+                                            apotpets.createdAt
+                                        ).toLocaleDateString()}
+                                    </td>
+
+                                    <td className="px-5 py-4">
+                                        {new Date(
+                                            apotpets.adoptionDate
+                                        ).toLocaleDateString()}
+                                    </td>
+
+                                    <td className="px-5 py-4 capitalize">
+                                        {apotpets.status}
+                                    </td>
+
+                                    <td className="px-5 py-4">
+                                        <div className="flex gap-2">
+                                            <Link href={`/allpets/${apotpets?.petsId}`}>
+                                                <Button variant='outline' className="px-4 py-2">
+                                                    View
+                                                </Button>
+                                            </Link>
+
+                                            {apotpets.status !== "adopted" &&
                                                 apotpets.status !== "approved" && (
-                                                    <ListingAlter apotpets={apotpets}></ListingAlter>
-                                                )
-                                            }
-                                        </Table.Cell>
+                                                    <ListingAlter apotpets={apotpets} />
+                                                )}
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
 
-                                    </Table.Row>
-                                )
-                            }
+           
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 lg:hidden">
 
-                        </Table.Body>
-                    </Table.Content>
-                </Table.ScrollContainer>
-            </Table>
+                    {adoptPetInformation.map((apotpets) => (
+                        <div
+                            key={apotpets._id}
+                            className="
+                    border border-gray-200
+                    rounded-2xl
+                    p-4
+                    space-y-3
+                    bg-white
+                "
+                        >
+
+                            <div className="flex justify-between gap-3">
+                                <span className="font-semibold text-gray-500">
+                                    Pet
+                                </span>
+
+                                <span className="text-right font-medium">
+                                    {apotpets.petsName}
+                                </span>
+                            </div>
+
+                            <div className="flex justify-between gap-3">
+                                <span className="font-semibold text-gray-500">
+                                    Request
+                                </span>
+
+                                <span className="text-right text-sm">
+                                    {new Date(
+                                        apotpets.createdAt
+                                    ).toLocaleDateString()}
+                                </span>
+                            </div>
+
+                            <div className="flex justify-between gap-3">
+                                <span className="font-semibold text-gray-500">
+                                    Pickup
+                                </span>
+
+                                <span className="text-right text-sm">
+                                    {new Date(
+                                        apotpets.adoptionDate
+                                    ).toLocaleDateString()}
+                                </span>
+                            </div>
+
+                            <div className="flex justify-between gap-3">
+                                <span className="font-semibold text-gray-500">
+                                    Status
+                                </span>
+
+                                <span className="capitalize">
+                                    {apotpets.status}
+                                </span>
+                            </div>
+
+                            <div className="flex flex-col sm:flex-row gap-2 pt-2">
+
+                                <Link
+                                    href={`/allpets/${apotpets?.petsId}`}
+                                    className="w-full"
+                                >
+                                    <Button
+                                        variant='outline'
+                                        className=" w-full px-4 py-2 border"
+                                    >
+                                        View
+                                    </Button>
+                                </Link>
+
+                                {apotpets.status !== "adopted" &&
+                                    apotpets.status !== "approved" && (
+                                        <ListingAlter apotpets={apotpets} />
+                                    )}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
     );
 };

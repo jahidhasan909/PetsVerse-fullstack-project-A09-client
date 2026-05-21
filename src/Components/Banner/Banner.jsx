@@ -19,7 +19,7 @@ import { IconPaw } from '@tabler/icons-react';
 const Banner = () => {
     return (
         <div className=' relative overflow-hidden'>
-            <Image src={'https://i.ibb.co.com/tyFhgSP/Screenshot-2026-05-18-at-2-48-52-PM-Photoroom-Picsart-Ai-Image-Enhancer.png'} width={1000} height={1300} className='w-full object-cover relative overflow-hidden  h-[920px] ' alt='banner' ></Image>
+            <Image src={'https://i.ibb.co.com/tyFhgSP/Screenshot-2026-05-18-at-2-48-52-PM-Photoroom-Picsart-Ai-Image-Enhancer.png'} width={1000} height={1300} className='w-full object-cover relative overflow-hidden h-[700px]  md:h-[920px] ' alt='banner' ></Image>
             <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/5 to-black/10"></div>
             <div
                 className='absolute inset-0 backdrop-blur-xs'
@@ -52,10 +52,10 @@ const Banner = () => {
                 }}
             />
             <div className={` absolute  -translate-1/2 top-1/3 left-1/2 text-center`}>
-                <p className={`${italianno.className} text-7xl text-[#eb7a09]`}>love and care</p>
-                <h1 className='text-5xl font-bold text-white'>Find Your Forever Companion</h1>
+                <p className={`${italianno.className} text-3xl  md:text-4xl lg:text-7xl text-[#eb7a09]`}>love and care</p>
+                <h1 className='text-2xl md:text-3xl lg:text-5xl font-bold text-white'>Find Your Forever Companion</h1>
 
-                <div>
+                <div className='hidden md:block'>
                     <TypeAnimation
                         sequence={[
                             'Connect with loving, rescued pets ready for a safe and happy home.',
@@ -66,7 +66,7 @@ const Banner = () => {
                             1000,
                         ]}
                         wrapper="span"
-                        className='text-xl text-white mt-2'
+                        className=' md:text-md lg:text-xl text-white mt-2'
                         speed={50}
                         style={{ display: 'inline-block' }}
                         repeat={Infinity}
@@ -74,11 +74,36 @@ const Banner = () => {
                 </div>
 
 
-
-                <Link href={'/allpets'}><Button variant='outline' className={'bg-[#D97706] mt-5 border border-white/30 text-white'}>Adopt Now   <IconPaw stroke={2} /></Button></Link>
+                <Link className='hidden md:block ' href={'/allpets'}><Button variant='outline' className={'bg-[#D97706]   mt-5 border border-white/30 text-white'}>Adopt Now   <IconPaw stroke={2} /></Button></Link>
             </div>
 
-            <div className=' absolute top-1/3 mt-20 ml-10 text-white'>
+            
+            <div className='md:hidden'>
+                <TypeAnimation
+                    sequence={[
+                        'Connect with loving, rescued pets ready for a safe and happy home.',
+                        1000,
+                        'Discover a modern adoption experience designed to bring pets',
+                        1000,
+                        'and families together with care, trust, and simplicity.',
+                        1000,
+                    ]}
+                    wrapper="span"
+                    className=' text-xs text-white  absolute -translate-1/2 top-[292px] left-1/2   mt-5'
+                    speed={50}
+                    style={{ display: 'inline-block' }}
+                    repeat={Infinity}
+                />
+            </div>
+
+
+
+
+            <Link className='md:hidden' href={'/allpets'}><Button variant='outline' className={'bg-[#D97706]  absolute -translate-1/2 top-[338px] left-1/2   mt-5 border border-white/30 text-white'}>Adopt Now   <IconPaw stroke={2} /></Button></Link>
+            
+
+
+            <div className='hidden lg:block absolute top-1/3 mt-20 ml-10 text-white'>
                 <h3 className='uppercase -rotate-90'>Reach  us</h3>
                 <div className='  border-r border border-gray-400 rounded-full rotate-90 mt-20'>
 
@@ -125,7 +150,7 @@ const Banner = () => {
 
 
 
-            <div className='absolute shadow-2xl shadow-[#ff912421] mr-10 mb-10  bottom-0 right-0 overflow-hidden rounded-2xl'>
+            <div className='hidden lg:block absolute shadow-2xl shadow-[#ff912421] mr-10 mb-10  bottom-0 right-0 overflow-hidden rounded-2xl'>
                 <video
                     autoPlay
                     muted

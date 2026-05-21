@@ -49,6 +49,23 @@ function AppendDots() {
         centerMode: false,
         arrows: true,
 
+
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                },
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                },
+            },
+
+        ],
+
         appendDots: (dots) => (
             <div style={{ marginTop: '20px' }}>
                 <ul className="flex items-center justify-center gap-3 m-0 p-0">
@@ -72,8 +89,8 @@ function AppendDots() {
     };
 
     return (
-        <div className="hidden md:block my-27 max-w-11/13 mx-auto">
-            <div className="flex justify-between items-center">
+        <div className="my-27 max-w-11/13 mx-auto">
+            <div className=" md:flex justify-between items-center">
                 <div>
                     <h1 className="font-bold text-3xl ">Featured Pets</h1>
                     <p className="text-neutral-400  text-[1.10rem] mt-2">Discover some of our most lovable pets waiting for a forever home. Find your perfect companion today.</p>
