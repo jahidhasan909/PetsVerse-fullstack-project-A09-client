@@ -87,13 +87,14 @@ const DetailsForm = ({ expectedPets }) => {
             createdAt: new Date()
         };
 
-
+        const { data: token } = await authClient.token()
 
         const res = await fetch('https://pets-verse-fullstack-project-a09-se.vercel.app/adopt', {
 
             method: "POST",
             headers: {
-                "content-type": "application/json"
+                "content-type": "application/json",
+                authorization: `Bearar ${token?.token}`
             },
 
             body: JSON.stringify(adoptInfo)

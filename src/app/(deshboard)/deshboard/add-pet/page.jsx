@@ -65,12 +65,13 @@ const AddPetListing = () => {
             status: "Available"
 
         }
-        
+         const { data:token } =await  authClient.token()
 
         const res = await fetch('https://pets-verse-fullstack-project-a09-se.vercel.app/pets', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                authorization:`Bearar ${token?.token}`
             },
             body: JSON.stringify(allPetsInformationPost)
         })

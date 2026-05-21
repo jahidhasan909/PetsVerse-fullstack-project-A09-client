@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { DotSpinner } from 'ldrs/react'
 import 'ldrs/react/DotSpinner.css'
 import { ThemeSwitch } from "../Providers/ThemeSwitch";
+import { IconHome, IconList } from "@tabler/icons-react";
 
 
 
@@ -97,11 +98,11 @@ export function Navbar() {
 
 
                         <div className="">
-                            <Link className={pathname === '/' ? 'py-2  text-[#D97706] no-underline font-bold text-[13px]' : 'py-2 no-underline text-neutral-400 font-semibold text-[13px]'} href={'/'}>Home</Link>
+                            <Link className={pathname === '/' ? 'py-2 flex items-center  text-[#D97706] gap-1 no-underline font-bold text-[13px]' : 'py-2 no-underline flex items-center text-neutral-400 gap-1 font-semibold text-[13px]'} href={'/'}><IconHome stroke={2} /> Home</Link>
 
                         </div>
                         <div className="">
-                            <Link className={pathname === '/allpets' ? 'py-2 text-[#D97706] no-underline font-bold text-[13px]' : 'py-2 no-underline text-neutral-400  font-semibold text-[13px]'} href={'/allpets'}> All Pets</Link>
+                            <Link className={pathname === '/allpets' ? 'py-2 text-[#D97706] flex items-center gap-1 no-underline font-bold text-[13px]' : 'py-2 no-underline text-neutral-400 flex items-center gap-1  font-semibold text-[13px]'} href={'/allpets'}><IconList stroke={2} /> All Pets</Link>
 
                         </div>
 
