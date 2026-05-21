@@ -22,11 +22,6 @@ const DetailsForm = ({ expectedPets }) => {
 
     const isAdopted = expectedPets?.status === 'adopted';
 
-    const handleAdoptionClick = () => {
-        if (isAdopted) {
-            return toast.error('This pet is already adopted!')
-        }
-    }
 
     if (isOwner) {
         return (
@@ -53,9 +48,18 @@ const DetailsForm = ({ expectedPets }) => {
 
 
     const onSubmit = async (e) => {
+
+
+
+
         e.preventDefault();
+
+        if (isAdopted) {
+            return toast.error('This pet is already adopted!')
+        }
         const formData = new FormData(e.currentTarget)
         const petsadopt = Object.fromEntries(formData.entries());
+
 
 
         const adoptInfo = {
@@ -132,7 +136,7 @@ const DetailsForm = ({ expectedPets }) => {
 
         // console.log(patchresult);
 
-        if (patchresult) {
+        if (!isAdopted) {
             toast.success('Adoption request sent successfully !')
         }
 
@@ -229,12 +233,12 @@ const DetailsForm = ({ expectedPets }) => {
 
                     <div className="flex gap-3 w-full mt-2">
                         <Button
-                            onClick={handleAdoptionClick}
+                            isDisabled={isAdopted}
                             type="submit"
                             className="flex-1 bg-[#D97706]  font-bold text-md py-6 rounded-lg  transition-colors border border-white/40 flex items-center justify-center gap-2"
                         >
                             <IconPaw size={18} />
-                            Adopt {expectedPets?.petName}
+                            {isAdopted ? 'Already Adopted' : `Adopt ${expectedPets?.petName}`}
                         </Button>
                     </div>
 
