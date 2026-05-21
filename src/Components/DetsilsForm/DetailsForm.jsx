@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Form, TextField, Label, Input, FieldError, Description, Button, Card, DateField, Calendar } from "@heroui/react";
 import { IconHeart, IconUser, IconMail, IconCalendar, IconPaw } from "@tabler/icons-react";
 import { authClient } from '@/lib/auth-client';
+import toast from 'react-hot-toast';
 
 
 const DetailsForm = ({ expectedPets }) => {
@@ -131,6 +132,10 @@ const DetailsForm = ({ expectedPets }) => {
         const patchresult = await respatch.json()
 
         // console.log(patchresult);
+
+        if (patchresult) {
+            toast.success('Adoption request sent successfully !')
+        }
 
 
 
