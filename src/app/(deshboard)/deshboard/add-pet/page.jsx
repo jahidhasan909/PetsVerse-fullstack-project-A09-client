@@ -65,11 +65,10 @@ const AddPetListing = () => {
 
         }
 
-        const res = await fetch('http://https://pets-verse-fullstack-project-a09-se.vercel.app/pets', {
+        const res = await fetch('https://pets-verse-fullstack-project-a09-cl.vercel.app/pets', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-
             },
             body: JSON.stringify(allPetsInformationPost)
         })
