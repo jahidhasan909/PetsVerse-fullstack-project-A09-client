@@ -32,7 +32,7 @@ export function RequestModal({ _id }) {
 
             console.log(data);
 
-            
+
             const updated = modalData.map((item) => {
 
                 if (item._id === requestId) {
@@ -73,11 +73,16 @@ export function RequestModal({ _id }) {
 
             setLoading(true);
 
-            console.log("petsId:", _id);
-
+            // console.log("petsId:", _id);
+            const { data: tokenData } = await authClient.token()
             const res = await fetch(
-                `http://localhost:8000/adopt/${_id}`
-            );
+                `http://localhost:8000/adopt/${_id}`, {
+                headers: {
+                    'content-type': 'application/json',
+                    authorization: `Bearar ${tokenData?.token}`
+                },
+
+            });
 
             const data = await res.json();
 
@@ -85,7 +90,7 @@ export function RequestModal({ _id }) {
 
             setModalData(data || []);
         } catch (error) {
-            console.error("Fetch error:",error);
+            console.error("Fetch error:", error);
         } finally {
             setLoading(false);
         }
@@ -93,7 +98,7 @@ export function RequestModal({ _id }) {
 
     const handleOpen = () => {
         setIsOpen(true);
-        fetchRequests(); 
+        fetchRequests();
     };
 
     if (isPending) {
@@ -104,11 +109,13 @@ export function RequestModal({ _id }) {
         );
     }
 
+
+
     return (
         <>
-         
+
             <Button onPress={handleOpen} className={'w-full'} variant="secondary">
-                Requests 
+                Requests
             </Button>
 
             <Modal
@@ -119,7 +126,7 @@ export function RequestModal({ _id }) {
                     <Modal.Container>
                         <Modal.Dialog className="sm:max-w-[360px]">
 
-                        
+
                             <Button
                                 className="absolute right-2 top-2 min-w-0 p-1 bg-transparent text-neutral-400 hover:text-black"
                                 onPress={() => setIsOpen(false)}
@@ -127,7 +134,7 @@ export function RequestModal({ _id }) {
                                 ✕
                             </Button>
 
-                           
+
                             <Modal.Header>
                                 <Modal.Icon className="bg-default text-foreground">
                                     <Rocket className="size-5" />
@@ -154,7 +161,7 @@ export function RequestModal({ _id }) {
                                         {modalData.map((req) => (
                                             <div
                                                 key={req._id}
-                                                className="p-3 border rounded-lg bg-neutral-50"
+                                                className="p-3 border rounded-lg bg-neutral-50 space-y-1.5"
                                             >
                                                 <p className="font-semibold text-black">
                                                     {req.userName}
@@ -162,6 +169,22 @@ export function RequestModal({ _id }) {
                                                 <p className="text-xs text-neutral-600">
                                                     {req.userEmail}
                                                 </p>
+                                                <span className="text-xs">
+                                                    <p>Pickup : {new Date(req.adoptionDate).toLocaleDateString('en-US', {
+                                                        weekday: 'long',
+                                                        year: 'numeric',
+                                                        month: 'long',
+                                                        day: 'numeric'
+                                                    })}</p>
+                                                    <p>Request : {new Date(req.createdAt).toLocaleDateString('en-US', {
+                                                        weekday: 'long',
+                                                        year: 'numeric',
+                                                        month: 'long',
+                                                        day: 'numeric'
+                                                    })}</p>
+                                                </span>
+                                                <p className="border p-2 my-2 rounded-2xl bg-gray-200">
+                                                    {req.message}</p>
 
 
 

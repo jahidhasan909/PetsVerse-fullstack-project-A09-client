@@ -13,10 +13,21 @@ const DeshBoardHomePage = async () => {
         headers: await headers(),
     });
 
+    const token = await auth.api.getToken({
+        headers: await headers()
+
+    })
+
     const user = session?.user
 
 
-    const res = await fetch(`http://localhost:8000/adopt?email=${user?.email}`)
+    const res = await fetch(`http://localhost:8000/adopt?email=${user?.email}`, {
+
+        headers: {
+            authorization: `Barear ${token?.token}`
+        }
+
+    })
     const adoptPetInformation = await res.json()
 
 
@@ -65,11 +76,21 @@ const DeshBoardHomePage = async () => {
                             {
                                 adoptPetInformation.map(apotpets =>
 
-                                    <Table.Row  key={apotpets._id}>
+                                    <Table.Row key={apotpets._id}>
 
                                         <Table.Cell>{apotpets.petsName}</Table.Cell>
-                                        <Table.Cell>{apotpets.createdAt}</Table.Cell>
-                                        <Table.Cell>{apotpets.adoptionDate}</Table.Cell>
+                                        <Table.Cell>{new Date(apotpets.createdAt).toLocaleDateString('en-US', {
+                                            weekday: 'long',
+                                            year: 'numeric',
+                                            month: 'long',
+                                            day: 'numeric'
+                                        })}</Table.Cell>
+                                        <Table.Cell>{new Date(apotpets.adoptionDate).toLocaleDateString('en-US', {
+                                            weekday: 'long',
+                                            year: 'numeric',
+                                            month: 'long',
+                                            day: 'numeric'
+                                        })}</Table.Cell>
                                         <Table.Cell>{apotpets.status}</Table.Cell>
                                         <Table.Cell className={'flex gap-3 pl-40'}>
                                             <Link href={`/allpets/${apotpets?.petsId}`}><Button variant='outline'>View</Button></Link>

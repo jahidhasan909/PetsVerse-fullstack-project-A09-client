@@ -103,7 +103,7 @@ const DetailsForm = ({ expectedPets }) => {
 
         // console.log(postresult);
 
-
+        const { data: tokenData } = await authClient.token()
 
         const respatch = await fetch(
 
@@ -114,7 +114,8 @@ const DetailsForm = ({ expectedPets }) => {
                 method: "PATCH",
 
                 headers: {
-                    "content-type": "application/json"
+                    "content-type": "application/json",
+                    authorization: `Bearar ${tokenData?.token}`
                 },
 
                 body: JSON.stringify({
@@ -143,7 +144,7 @@ const DetailsForm = ({ expectedPets }) => {
 
 
                 <div className="flex gap-3 items-center pb-4 border-b border-black">
-                    
+
                     <div className="flex flex-col">
                         <h2 className="text-xl font-semibold text-black ">
                             Request to Adopt {expectedPets?.petName}

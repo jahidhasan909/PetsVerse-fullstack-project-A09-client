@@ -14,11 +14,19 @@ const MyListingPage = async () => {
 
     const user = session?.user
 
+    const token = await auth.api.getToken({
+        headers: await headers()
+
+    })
 
 
-    const res = await fetch(`http://localhost:8000/ownpetslisting/${user?.id}`)
+    const res = await fetch(`http://localhost:8000/ownpetslisting/${user?.id}`, {
+        headers: {
+            authorization: `Barear ${token?.token}`
+        }
+    })
     const ownListingpets = await res.json()
-    console.log(ownListingpets, 'ownlisting');
+    // console.log(ownListingpets, 'ownlisting');
 
 
 

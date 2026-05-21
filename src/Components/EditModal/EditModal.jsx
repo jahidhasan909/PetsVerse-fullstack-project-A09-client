@@ -35,11 +35,12 @@ const EditModal = ({ ownpets }) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget)
         const newEditPetDetails = Object.fromEntries(formData.entries())
-
+        const { data: tokenData } = await authClient.token()
         const res = await fetch(`http://localhost:8000/ownpetslisting/${_id}`, {
             method: 'PATCH',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                authorization: `Bearar ${tokenData?.token}`
             },
             body: JSON.stringify(newEditPetDetails)
         })

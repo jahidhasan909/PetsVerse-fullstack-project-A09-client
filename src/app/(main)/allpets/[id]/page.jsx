@@ -1,24 +1,28 @@
 import DetailsForm from "@/Components/DetsilsForm/DetailsForm";
-import {
-    Calendar,
-    HeartPulse,
-    MapPin,
-    PawPrint,
-    Shield,
-    Syringe,
-    User,
-} from "lucide-react";
+import { Calendar, HeartPulse, MapPin, PawPrint, Shield, Syringe, User, } from "lucide-react";
+import { headers } from 'next/headers';
 
 import { Card, Button, Chip } from "@heroui/react";
 
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { auth } from "@/lib/auth";
 
 const DetailsPage = async ({ params }) => {
     const { id } = await params;
 
-    const res = await fetch(`http://localhost:8000/allpets/${id}`);
+
+    const token = await auth.api.getToken({
+        headers: await headers()
+
+    })
+
+    const res = await fetch(`http://localhost:8000/allpets/${id}`, {
+        headers: {
+            authorization: `Barear ${token?.token}`
+        }
+    });
     const expectedPets = await res.json();
 
     return (
@@ -67,6 +71,10 @@ const DetailsPage = async ({ params }) => {
                                     <h1 className="text-2xl font-bold">
                                         {expectedPets?.petName}
                                     </h1>
+
+                                    <p className="text-gray-500 py-2">
+                                        {expectedPets?.description}
+                                    </p>
 
                                     <div className="flex flex-wrap items-center gap-3 mt-4">
 
@@ -218,9 +226,9 @@ const DetailsPage = async ({ params }) => {
                         </div>
                     </Card>
 
-                   
-                        <DetailsForm expectedPets={expectedPets} />
-                  
+
+                    <DetailsForm expectedPets={expectedPets} />
+
 
                 </div>
             </div>
