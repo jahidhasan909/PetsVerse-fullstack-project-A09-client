@@ -1,8 +1,8 @@
 "use client"
 import { Button, FieldError, Input, Label, ListBox, Modal, Surface, TextArea, TextField, Select } from '@heroui/react';
 import React from 'react';
-import { MdEditLocationAlt } from 'react-icons/md';
-import { CiSaveUp2 } from "react-icons/ci";
+
+import { CiEdit, CiSaveUp2 } from "react-icons/ci";
 import toast from 'react-hot-toast';
 import { authClient } from '@/lib/auth-client';
 
@@ -63,14 +63,14 @@ const EditModal = ({ ownpets }) => {
     return (
         <div>
             <Modal className={''}>
-                <Button className={'w-full bg-[#D97706] text-white border-white/40'} variant='outline'><MdEditLocationAlt /> Edit</Button>
+                <Button className={'w-full bg-[#D97706] text-white border-white/40'} variant='outline'><CiEdit /> Edit</Button>
                 <Modal.Backdrop>
                     <Modal.Container placement="auto">
                         <Modal.Dialog className="sm:max-w-md md:max-w-3xl rounded-md border ">
                             <Modal.CloseTrigger />
                             <Modal.Header>
 
-                                <Modal.Heading className='flex items-center gap-1 font-bold text-xl text-white'><span className='text-[#b38b6d]'><MdEditLocationAlt /></span> Update Travel Package</Modal.Heading>
+                                <Modal.Heading className='flex items-center gap-1 font-bold text-xl'><span className=''> <CiEdit /></span> Update Pets Information</Modal.Heading>
 
                             </Modal.Header>
                             <Modal.Body className="p-6">
