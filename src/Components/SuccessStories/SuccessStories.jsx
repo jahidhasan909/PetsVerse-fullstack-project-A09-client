@@ -4,6 +4,7 @@ import ImageSlider from './Siwper';
 import MomentSlider from './FamliySiwper';
 import Link from 'next/link';
 import { motion } from 'framer-motion'
+import { IconPaw } from '@tabler/icons-react';
 
 const SuccessStories = () => {
 
@@ -28,7 +29,7 @@ const SuccessStories = () => {
             >
 
 
-                <Card className='flex justify-center bg-white/30 border border-white/40'>
+                <Card className='flex justify-center bg-[#FCF8F3] dark:bg-black border border-white/40'>
                     <p className='text-xl font-semibold'>200+</p>
                     <h1 className='text-xl font-semibold'>Pets Adopted</h1>
                     <p className='text-gray-500'>Loving homes found through our community.</p>
@@ -47,7 +48,7 @@ const SuccessStories = () => {
                 className='grid grid-cols-2 gap-3 mb-3'
             >
                 <MomentSlider></MomentSlider>
-                <Card className='flex justify-center bg-white/30 border border-white/40'>
+                <Card className='flex justify-center bg-[#FCF8F3] dark:bg-black border border-white/40'>
                     <h1 className='text-xl font-semibold'>Happy Families</h1>
                     <p className='text-gray-500 p-2'>Every adoption creates a beautiful bond between pets and their new families. These moments remind us why adoption matters.</p>
                 </Card>
@@ -62,10 +63,10 @@ const SuccessStories = () => {
                 
             >
 
-                <Card className='flex justify-center bg-white/30 border border-white/40'>
+                <Card className='flex justify-center bg-[#FCF8F3] dark:bg-black border border-white/40'>
                     <h1 className='text-xl font-semibold'>Find Your Perfect Pet</h1>
                     <p className='text-gray-500'>Discover pets that match your lifestyle and bring joy to your home.</p>
-                    <Link className='' href={'/allpets'}><Button className={'mx-auto bg-white border-white/20'} variant='otuline'>Find Your Pet</Button></Link>
+                    <Link className='' href={'/allpets'}><Button className={'mx-auto text-white  bg-[#D97706] border-white/20'} variant='otuline'>Find Your Pet   <IconPaw stroke={2} /></Button></Link>
                 </Card>
             </motion.div>
 

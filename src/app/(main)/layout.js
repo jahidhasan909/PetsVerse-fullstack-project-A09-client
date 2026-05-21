@@ -6,7 +6,7 @@ export default function MainRootLayout({ children }) {
   return (
     <>
 
-      <body className="min-h-full bg-[#fbcfb151]  flex flex-col">
+      <body className="min-h-full flex flex-col">
         <Navbar></Navbar>
         <main className=" grow">{children}</main>
         <Toaster />

@@ -40,7 +40,7 @@ const DetailsForm = ({ expectedPets }) => {
 
     if (isOwner) {
         return (
-            <div className='h-full flex items-center justify-center border rounded-xl'>
+            <div className='h-full  flex items-center justify-center border rounded-xl'>
                 <h2 className='text-xl font-semibold'>
                     This is your posted pet
                 </h2>
@@ -140,7 +140,7 @@ const DetailsForm = ({ expectedPets }) => {
 
     return (
         <div className="w-full">
-            <Card className="w-full max-w-lg bg-white/40 border-white/40 border rounded-2xl shadow-none p-6">
+            <Card className="w-full  bg-[#FCF8F3] dark:bg-black border-white/40 border rounded-2xl shadow-none p-6">
 
 
                 <div className="flex gap-3 items-center pb-4 border-b border-black">
@@ -226,7 +226,7 @@ const DetailsForm = ({ expectedPets }) => {
                     <div className="flex gap-3 w-full mt-2">
                         <Button
                             type="submit"
-                            className="flex-1 bg-white/50  font-bold text-md py-6 rounded-lg  transition-colors border border-white/40 flex items-center justify-center gap-2"
+                            className="flex-1 bg-[#D97706]  font-bold text-md py-6 rounded-lg  transition-colors border border-white/40 flex items-center justify-center gap-2"
                         >
                             <IconPaw size={18} />
                             Adopt Destiny Drake

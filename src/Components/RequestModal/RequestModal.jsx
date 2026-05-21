@@ -251,7 +251,7 @@ export function RequestModal({ _id }) {
                             {/* FOOTER */}
                             <Modal.Footer>
                                 <Button
-                                    className="w-full bg-black text-white"
+                                    className="w-full bg-[#D97706] text-white"
                                     onPress={() => setIsOpen(false)}
                                 >
                                     Close

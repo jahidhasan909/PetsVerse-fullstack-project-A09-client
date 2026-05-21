@@ -63,7 +63,7 @@ const EditModal = ({ ownpets }) => {
     return (
         <div>
             <Modal className={''}>
-                <Button className={'w-full bg-white/40 border-white/40'} variant='outline'><MdEditLocationAlt /> Edit</Button>
+                <Button className={'w-full bg-[#D97706] text-white border-white/40'} variant='outline'><MdEditLocationAlt /> Edit</Button>
                 <Modal.Backdrop>
                     <Modal.Container placement="auto">
                         <Modal.Dialog className="sm:max-w-md md:max-w-3xl rounded-md border ">

@@ -33,7 +33,7 @@ const AllpetsMotion = ({ pets }) => {
             <p className='text-center pt-2 pb-5 text-gray-500'>Browse lovable pets ready for adoption and find the perfect furry friend to brighten your life.</p>
 
 
-            <div className='flex  justify-between bg-white/30 border border-white/40 rounded-2xl p-4 my-7'>
+            <div className='flex  justify-between bg-[#FCF8F3] dark:bg-black border border-white/40 rounded-2xl p-4 my-7'>
                 <SearchField name="search">
                     <SearchField.Group>
                         <SearchField.SearchIcon />
@@ -45,7 +45,7 @@ const AllpetsMotion = ({ pets }) => {
 
 
                 <Dropdown>
-                    <Button className={'bg-white/40 border-white/40'} aria-label="Menu" variant="">
+                    <Button className={'text-[#D97706] border-[#D97706] border font-semibold'} aria-label="Menu" variant="">
                         Filter pets by species <ChevronDown></ChevronDown>
                     </Button>
                     <Dropdown.Popover className="min-w-[256px]">

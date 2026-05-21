@@ -82,7 +82,7 @@ const LoginPage = () => {
                             <FieldError />
                         </TextField>
 
-                        <Button type="submit" variant="outline" className={'bg-white/50 border border-white/90 rounded-md w-full font-semibold'}>
+                        <Button type="submit" variant="outline" className={'bg-[#D97706] text-white border border-white/90 rounded-md w-full font-semibold'}>
                             Log In
                         </Button>
 
@@ -99,7 +99,7 @@ const LoginPage = () => {
                         Log In With Google
                     </Button>
 
-                    <span className="text-center text-neutral-400"><span>{"Don't have an account?"}</span> <Link href={'/registration'}><span className="text-[#f7bc94] font-semibold">Register</span></Link></span>
+                    <span className="text-center text-neutral-400"><span>{"Don't have an account?"}</span> <Link href={'/registration'}><span className="text-[#D97706] font-semibold">Register</span></Link></span>
                 </Card>
             </div>
         </div>

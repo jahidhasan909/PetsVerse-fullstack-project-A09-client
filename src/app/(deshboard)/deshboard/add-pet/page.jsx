@@ -11,6 +11,7 @@ import { useRef } from 'react';
 import { MdClear } from 'react-icons/md';
 import { DotSpinner } from 'ldrs/react'
 import 'ldrs/react/DotSpinner.css'
+import { IconPaw } from '@tabler/icons-react';
 
 const AddPetListing = () => {
 
@@ -89,7 +90,7 @@ const AddPetListing = () => {
         <div className='container mx-auto my-20 '>
             <h1 className='font-bold text-3xl lg:text-3xl  mt-2 pl-13 text-black text-center'>Add New Pet for Adoption</h1>
             <p className='text-gray-500 pl-13 mb-7 pt-2 text-center text-[0.94rem]'>Add a loving pet and help them find a forever home.</p>
-            <Card className='rounded-md shadow-md  max-w-7xl mx-auto bg-white/50 border-white/40 border'>
+            <Card className='rounded-md shadow-md  max-w-7xl mx-auto bg-[#FCF8F3] dark:bg-black border-white/40 border'>
                 <form
                     ref={formRef}
                     onSubmit={onSubmit}
@@ -259,7 +260,7 @@ const AddPetListing = () => {
                     <div className='grid grid-cols-2 gap-7'>
                         <Button onClick={
                             () => formRef.current.reset()
-                        } variant='outline' className={'text-red-200 rounded-md border-red-200 w-full'}>
+                        } variant='outline' className={'text-red-400  border-red-300 w-full'}>
                             <MdClear></MdClear>
                             Cancel
                         </Button>
@@ -268,9 +269,9 @@ const AddPetListing = () => {
                             type="submit"
                             variant="outline"
 
-                            className=" rounded-md bg-linear-to-r bg-white/70 border-white/92  w-full"
+                            className=" bg-linear-to-r bg-[#D97706] text-white border-white/92  w-full"
                         >
-                            <FaWpforms />
+                              <IconPaw stroke={2} />
                             Add Pet Listing
                         </Button>
                     </div>

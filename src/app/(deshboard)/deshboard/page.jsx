@@ -45,19 +45,19 @@ const DeshBoardHomePage = async () => {
 
 
             <div className='grid grid-cols-4 gap-2 my-5'>
-                <Card className='bg-white/40 border border-white/40 text-center'>
+                <Card className='bg-[#FCF8F3] dark:bg-black border border-white/40 text-center'>
                     <h1 className='font-semibold text-lg'>{adoptPetInformation.length}</h1>
                     <p className='text-gray-500'>Total</p>
                 </Card>
-                <Card className='bg-white/40 border border-white/40 text-center'>
+                <Card className='bg-[#FCF8F3] dark:bg-black border border-white/40 text-center'>
                     <h1 className='text-orange-300 font-semibold text-lg'>{adoptPetInformation.filter(statuss => statuss.status === 'pending').length}</h1>
                     <p className='text-gray-500'>Pending</p>
                 </Card>
-                <Card className='bg-white/40 border border-white/40 text-center'>
+                <Card className='bg-[#FCF8F3] dark:bg-black border border-white/40 text-center'>
                     <h1 className='text-green-500 font-semibold text-lg'>{adoptPetInformation.filter(statuss => statuss.status === 'approved').length}</h1>
                     <p className='text-gray-500'>Approved</p>
                 </Card>
-                <Card className='bg-white/40 border border-white/40 text-center'>
+                <Card className='bg-[#FCF8F3] dark:bg-black border border-white/40 text-center'>
                     <h1 className='text-red-400 font-semibold text-lg'>{adoptPetInformation.filter(statuss => statuss.status === 'rejected').length}</h1>
                     <p className='text-gray-500'>Rejected</p>
                 </Card>

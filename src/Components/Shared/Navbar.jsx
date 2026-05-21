@@ -9,6 +9,7 @@ import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { DotSpinner } from 'ldrs/react'
 import 'ldrs/react/DotSpinner.css'
+import { ThemeSwitch } from "../Providers/ThemeSwitch";
 
 
 
@@ -47,7 +48,7 @@ export function Navbar() {
 
 
     return (
-        <div className=" fixed absolute top-0 z-50 w-full py-5">
+        <div className=" fixed absolute top-0 z-50 w-full py-5 ">
             <nav className=" container mx-auto ">
                 <header className="flex h-16 items-center justify-between ">
                     <div className="flex items-center gap-4">
@@ -92,15 +93,15 @@ export function Navbar() {
 
 
 
-                    <div className="bg-white/30 gap-7 hidden lg:flex px-17 uppercase rounded-full py-1 border border-white/30">
+                    <div className="bg-white/20 backdrop-blur-xl gap-7 hidden lg:flex px-17 uppercase rounded-full py-1 border border-white/30">
 
 
                         <div className="">
-                            <Link className={pathname === '/' ? 'py-2  text-[#eb7a09] no-underline font-bold text-[12px]' : 'py-2 no-underline text-neutral-300 font-semibold text-[12px]'} href={'/'}>Home</Link>
+                            <Link className={pathname === '/' ? 'py-2  text-[#D97706] no-underline font-bold text-[13px]' : 'py-2 no-underline text-neutral-400 font-semibold text-[13px]'} href={'/'}>Home</Link>
 
                         </div>
                         <div className="">
-                            <Link className={pathname === '/allpets' ? 'py-2 text-[#eb7a09] no-underline font-bold text-[12px]' : 'py-2 no-underline text-neutral-300  font-semibold text-[12px]'} href={'/allpets'}> All Pets</Link>
+                            <Link className={pathname === '/allpets' ? 'py-2 text-[#D97706] no-underline font-bold text-[13px]' : 'py-2 no-underline text-neutral-400  font-semibold text-[13px]'} href={'/allpets'}> All Pets</Link>
 
                         </div>
 
@@ -112,9 +113,8 @@ export function Navbar() {
 
 
                     <ul className=" items-center gap-3 flex">
-                        <li className="py-3 px-3 rounded-full bg-white/30 border border-white/30 text-white">
-                            <Sun />
-                        </li>
+                      
+                        <ThemeSwitch></ThemeSwitch>
 
 
                         {
@@ -125,7 +125,7 @@ export function Navbar() {
                                             <Avatar.Image referrerPolicy="no-referrer" alt={user?.name} src={user?.image} />
                                             <Avatar.Fallback>{user?.name.charAt(0, 2)}</Avatar.Fallback>
                                         </Avatar>
-                                        <span className="text-white font-semibold">{user?.name.slice(0, 5)}</span>
+                                        <span className="text-white font-semibold text-lg pl-0.5">{user?.name.slice(0, 5)}</span>
                                         <span className="text-white"><ChevronDown></ChevronDown></span>
                                     </Dropdown.Trigger>
                                     <Dropdown.Popover>
@@ -161,7 +161,7 @@ export function Navbar() {
                                         </Dropdown.Menu>
                                     </Dropdown.Popover>
                                 </Dropdown>
-                            </ul> : <li><Link className={'no-underline py-3 px-5 rounded-full bg-white/30 border border-white/30 text-white'} href="/login">Log In</Link></li>
+                            </ul> : <li><Link className={'no-underline py-3 px-5 rounded-full bg-white/30 backdrop-blur-3xl border border-white/30 text-white'} href="/login">Log In</Link></li>
                         }
 
 

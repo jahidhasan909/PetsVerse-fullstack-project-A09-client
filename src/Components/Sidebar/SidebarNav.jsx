@@ -6,6 +6,7 @@ import Link from 'next/link';
 import React from 'react';
 import { DotSpinner } from 'ldrs/react'
 import 'ldrs/react/DotSpinner.css'
+import { ThemeSwitch } from '../Providers/ThemeSwitch';
 
 const SidebarNav = () => {
 
@@ -37,9 +38,7 @@ const SidebarNav = () => {
 
     return (
         <div className='flex items-center gap-3'>
-            <span className="py-3 px-3 rounded-full bg-white/30 border border-white/30 text-white pr-3">
-                <Sun />
-            </span>
+            <ThemeSwitch></ThemeSwitch>
             <Avatar size="lg">
                 <Avatar.Image referrerPolicy="no-referrer" alt={user?.name} src={user?.image} />
                 <Avatar.Fallback>{user?.name.charAt(0, 2)}</Avatar.Fallback>

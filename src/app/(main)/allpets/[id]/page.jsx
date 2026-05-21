@@ -26,8 +26,8 @@ const DetailsPage = async ({ params }) => {
     const expectedPets = await res.json();
 
     return (
-        <section className="  py-28">
-            <div className="max-w-11/12 mx-auto px-5">
+        <section className="max-w-11/12 mx-auto py-28">
+            <div className="mx-auto px-10">
 
 
                 <Link href={"/allpets"}>
@@ -42,7 +42,7 @@ const DetailsPage = async ({ params }) => {
                 <div className="grid lg:grid-cols-2 gap-5">
 
 
-                    <Card className="bg-white/40 border border-white/40 shadow-none rounded-3xl overflow-hidden">
+                    <Card className="bg-[#FCF8F3] dark:bg-black border border-white/40 shadow-none rounded-3xl overflow-hidden">
 
 
                         <div className="relative">
@@ -54,13 +54,7 @@ const DetailsPage = async ({ params }) => {
                                 className="w-full h-[420px] object-cover rounded-2xl"
                             />
 
-                            <Chip
-                                className="absolute top-5 right-5  border border-white/40"
-                                radius="full"
-                                variant="flat"
-                            >
-                                {expectedPets?.status}
-                            </Chip>
+                            <p className="absolute top-0 right-0 p-2 text-md">{expectedPets?.status === 'Available' ? <Chip color="success">{expectedPets?.status}</Chip> : expectedPets?.status === 'panding' ? <Chip color="warning">{expectedPets?.status}</Chip> : <Chip color="success">{expectedPets?.status}</Chip>}</p>
                         </div>
 
                         <div className="p-7 space-y-7">

@@ -13,7 +13,7 @@ const OwnPetsCard = ({ ownpets }) => {
 
     return (
         <div>
-            <Card variant="" className={'rounded-md  bg-white/30 border-white/30 border'}>
+            <Card variant="" className={'rounded-md  bg-[#FCF8F3] dark:bg-black border-white/30 border'}>
                 <Image src={ownpets?.imageUrl} className='w-full object-cover relative overflow-hidden rounded-md h-[230px]' height={230} width={250} alt={ownpets?.petName}></Image>
                 <p className=" absolute p-2 text-md">{ownpets?.status === 'Available' ? <Chip color="success">{ownpets?.status}</Chip> : ownpets?.status === 'panding' ? <Chip color="warning">{ownpets?.status}</Chip> : <Chip color="success">{ownpets?.status}</Chip>}</p>
                 <Card.Header className='p-2'>
@@ -27,7 +27,7 @@ const OwnPetsCard = ({ ownpets }) => {
 
                             <div className=' grid grid-cols-2 gap-2 mt-3'>
                                 <Link href={`/allpets/${ownpets._id}`} className='flex items-center gap-1 underline'>
-                                <Button className={'bg-white/40 border-white/40 w-full'} variant='outline'>View<ArrowUpRight /></Button>
+                                <Button className={'bg-gray-200 border-white/40 w-full'} variant='outline'>View<ArrowUpRight /></Button>
                                 </Link>
 
                                 <EditModal ownpets={ownpets}></EditModal>

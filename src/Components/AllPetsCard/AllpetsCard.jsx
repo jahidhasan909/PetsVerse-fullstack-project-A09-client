@@ -15,7 +15,7 @@ const AllpetsCard = ({ pet }) => {
 
     return (
         <div>
-            <Card variant="" className={'rounded-md  bg-white/30 border-white/30 border'}>
+            <Card variant="" className={'rounded-md  bg-[#FCF8F3] dark:bg-black border-white/30 border'}>
                 <Image src={imageUrl} className='w-full object-cover relative overflow-hidden rounded-md h-[230px]' height={230} width={250} alt={petName}></Image>
                 <p className=" absolute p-2 text-md">{status === 'Available' ? <Chip color="success">{status}</Chip> : status === 'panding' ? <Chip color="warning">{status}</Chip> : <Chip color="success">{status}</Chip>}</p>
                 <Card.Header className='p-2'>
@@ -27,12 +27,12 @@ const AllpetsCard = ({ pet }) => {
 
                         <div className="flex gap-2">
 
-                            <Link href={`/allpets/${_id}`} className='flex items-center gap-1 underline'>
-                                View Details
-                                <ArrowUpRight />
+                            <Link href={`/allpets/${_id}`} className='flex  items-center gap-1 underline'>
+                               <Button className={'bg-gray-200 border-white/40'} variant='outline'>View Details <ArrowUpRight /></Button>
+                                
                             </Link>
                             <Link href={`/allpets/${_id}`} className='no-underline flex items-center gap-1  text-[#b38b6d]'>
-                                <Button variant="outline" className={'bg-white/30 border-white/40 font-semibold'}>
+                                <Button variant="outline" className={'text-white bg-[#D97706] border-white/40 font-semibold'}>
                                     Adopt Now
                                     <IconPaw stroke={2} />
                                 </Button>

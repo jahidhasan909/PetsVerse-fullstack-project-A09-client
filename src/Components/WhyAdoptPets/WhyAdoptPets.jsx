@@ -28,22 +28,22 @@ const WhyAdoptPets = () => {
 
 
 
-                    <Card className='text-center flex justify-center bg-white/30 border border-white/40'>
+                    <Card className='text-center flex justify-center bg-[#FCF8F3] dark:bg-black border border-white/40'>
                         <span className='mx-auto'><IconHeart stroke={2} /></span>
                         <h1 className='text-xl font-semibold'>Save a Life</h1>
                         <p className='text-gray-500 text-[0.95rem] p-1'>Give a homeless pet a second chance at a happy and safe life.</p>
                     </Card>
-                    <Card className='text-center flex justify-center bg-white/30 border border-white/40'>
+                    <Card className='text-center flex justify-center bg-[#FCF8F3] dark:bg-black border border-white/40'>
                         <span className='mx-auto'><IconFileLike stroke={2} /></span>
                         <h1 className='text-xl font-semibold'>Loyal Companion</h1>
                         <p className='text-gray-500 text-[0.95rem] p-1'>Adopted pets stay loyal and build a strong emotional bond with you.</p>
                     </Card>
-                    <Card className='text-center flex justify-center bg-white/30 border border-white/40'>
+                    <Card className='text-center flex justify-center bg-[#FCF8F3] dark:bg-black border border-white/40'>
                         <span className='mx-auto'><IconHomeShield stroke={2} /></span>
                         <h1 className='text-xl font-semibold'>Safe & Trusted Process</h1>
                         <p className='text-gray-500 text-[0.95rem] p-1'>Secure adoption process with verified shelters and owners.</p>
                     </Card>
-                    <Card className='text-center flex justify-center bg-white/30 border border-white/40 '>
+                    <Card className='text-center flex justify-center bg-[#FCF8F3] dark:bg-black border border-white/40 '>
                         <span className='mx-auto'><IconMoodSmileBeam stroke={2} /></span>
                         <h1 className='text-xl font-semibold'>Emotional Happiness</h1>
                         <p className='text-gray-500 text-[0.95rem] p-1'>Pets bring love, joy, and reduce stress in your everyday life.</p>

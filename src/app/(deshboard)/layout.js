@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import DeshBoardPage from "./deshboard/page";
 import Sidebar from "@/Components/Sidebar/Sidebar";
 import SidebarNav from "@/Components/Sidebar/SidebarNav";
+import { Providers } from "@/Components/Providers/providers";
 
 
 
@@ -36,11 +37,16 @@ export default function DeshBoardRootLayout({ children }) {
 
         <div className="flex-1 flex-col min-h-screen">
 
-          <div className="flex justify-end bg-[#282828] h-20 items-center px-5">
+          <div className="bg-[#282828] flex justify-end  h-20 items-center px-5">
             <SidebarNav></SidebarNav>
           </div>
 
-          <main className=" grow lg:ml-[280px]">{children}</main>
+          <main className=" grow lg:ml-[280px]">
+            <Providers>
+
+              {children}
+            </Providers>
+          </main>
           <Toaster />
         </div>
 

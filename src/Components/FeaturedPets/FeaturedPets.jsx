@@ -79,7 +79,7 @@ function AppendDots() {
                     <p className="text-neutral-400  text-[1.10rem] mt-2">Discover some of our most lovable pets waiting for a forever home. Find your perfect companion today.</p>
                 </div>
                 <Link href={'/allpets'}>
-                    <Button variant="outline" className={' mt-3 bg-white/30 border-white/30 '}>ALL Pets <ArrowRight></ArrowRight></Button></Link>
+                    <Button variant="outline" className={' mt-3 bg-[#D97706] text-white border-white/30 '}>ALL Pets <ArrowRight></ArrowRight></Button></Link>
             </div >
             <Slider {...settings} className="">
                 {
@@ -90,7 +90,7 @@ function AppendDots() {
                         viewport={{ once: true }}
                         whileHover={{ y: -5, scale: 1.03 }}
                         key={petsinfo._id} className=" md:max-w-xl pr-4 mb-7 mt-4 relative overflow-hidden">
-                        <Card variant="" className={'rounded-md  bg-white/30 border-white/30 border'}>
+                        <Card variant="" className={'rounded-md  bg-[#FCF8F3] dark:bg-black border-white/30 border'}>
                             <Image src={petsinfo?.imageUrl} className='w-full object-cover relative overflow-hidden rounded-md h-[230px]' height={230} width={250} alt={petsinfo?.petName}></Image>
                             <p className=" absolute p-2 text-md">{petsinfo?.status === 'Available' ? <Chip color="success">{petsinfo?.status}</Chip> : petsinfo?.status === 'panding' ? <Chip color="warning">{petsinfo?.status}</Chip> : <Chip color="success">{petsinfo?.status}</Chip>}</p>
                             <Card.Header className='p-2'>
@@ -102,12 +102,12 @@ function AppendDots() {
 
                                     <div className="flex gap-2">
 
-                                        <Link href={`/allpets/${petsinfo?._id}`} className='flex items-center gap-1 underline'>
-                                            View Details
-                                            <ArrowUpRight />
+                                        <Link href={`/allpets/${petsinfo?._id}`} className='flex  items-center gap-1 underline'>
+                                            <Button className={'bg-gray-200 border-white/40'} variant='outline'>View Details <ArrowUpRight /></Button>
+
                                         </Link>
                                         <Link href={`/allpets/${petsinfo?._id}`} className='no-underline flex items-center gap-1  text-[#b38b6d]'>
-                                            <Button variant="outline" className={'bg-white/30 border-white/40 font-semibold'}>
+                                            <Button variant="outline" className={'bg-[#D97706] text-white border-white/40 font-semibold'}>
                                                 Adopt Now
                                                 <IconPaw stroke={2} />
                                             </Button>

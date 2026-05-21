@@ -11,6 +11,7 @@ import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
 import { italianno } from '@/app/layout';
 import Link from 'next/link';
+import { IconPaw } from '@tabler/icons-react';
 
 
 
@@ -74,7 +75,7 @@ const Banner = () => {
 
 
 
-                <Link href={'/allpets'}><Button variant='outline' className={'bg-white/30 mt-5 border border-white/30 text-white'}>Adopt Now</Button></Link>
+                <Link href={'/allpets'}><Button variant='outline' className={'bg-[#D97706] mt-5 border border-white/30 text-white'}>Adopt Now   <IconPaw stroke={2} /></Button></Link>
             </div>
 
             <div className=' absolute top-1/3 mt-20 ml-10 text-white'>
