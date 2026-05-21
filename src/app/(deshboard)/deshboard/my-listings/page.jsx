@@ -20,13 +20,13 @@ const MyListingPage = async () => {
     })
 
 
-    const res = await fetch(`https://pets-verse-fullstack-project-a09-se.vercel.app/ownpetslisting/${user?.id}`, {
+    const res = await fetch(`http://localhost:8000/ownpetslisting/${user?.id}`, {
         headers: {
             authorization: `Barear ${token?.token}`
         }
     })
     const ownListingpets = await res.json()
-    // console.log(ownListingpets, 'ownlisting');
+    // console.log(ownListingpets.filter(ownstatus => ownstatus.status === 'adopted').length);
 
 
 
@@ -45,7 +45,8 @@ const MyListingPage = async () => {
                     <p className='text-gray-500'>Available</p>
                 </Card>
                 <Card className='bg-[#FCF8F3] dark:bg-black border border-white/40 text-center'>
-                    <p className='font-semibold text-lg text-red-400'>{ownListingpets.filter(ownstatus => ownstatus.status === 'approved').length}</p>
+                    <p className='font-semibold text-lg text-red-400'>{ownListingpets.filter(ownstatus => ownstatus.status === 'adopted').length}</p>
+                   
                     <span className='text-gray-500'>Adopted</span>
                 </Card>
             </div>
