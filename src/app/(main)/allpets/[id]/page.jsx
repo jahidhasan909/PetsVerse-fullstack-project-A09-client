@@ -18,7 +18,7 @@ const DetailsPage = async ({ params }) => {
 
     })
 
-    const res = await fetch(`http://localhost:8000/allpets/${id}`, {
+    const res = await fetch(`https://pets-verse-fullstack-project-a09-se.vercel.app/allpets/${id}`, {
         headers: {
             authorization: `Barear ${token?.token}`
         }

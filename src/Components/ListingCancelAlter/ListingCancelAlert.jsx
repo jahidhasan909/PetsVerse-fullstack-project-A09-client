@@ -14,7 +14,7 @@ const ListingAlter = ({ apotpets }) => {
 
     const handleDelete = async () => {
          const { data: tokenData } = await authClient.token()
-        const res = await fetch(`http://localhost:8000/adopt/${apotpets?._id}`, {
+        const res = await fetch(`https://pets-verse-fullstack-project-a09-se.vercel.app/adopt/${apotpets?._id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',

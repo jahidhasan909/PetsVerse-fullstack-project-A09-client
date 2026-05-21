@@ -21,7 +21,7 @@ const DeshBoardHomePage = async () => {
     const user = session?.user
 
 
-    const res = await fetch(`http://localhost:8000/adopt?email=${user?.email}`, {
+    const res = await fetch(`https://pets-verse-fullstack-project-a09-se.vercel.app/adopt?email=${user?.email}`, {
 
         headers: {
             authorization: `Barear ${token?.token}`

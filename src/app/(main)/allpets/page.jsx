@@ -5,7 +5,7 @@ import React from 'react';
 
 const AllpetsPage = async () => {
 
-    const res = await fetch('http://localhost:8000/allpets')
+    const res = await fetch('https://pets-verse-fullstack-project-a09-se.vercel.app/allpets')
     const pets = await res.json()
     
 

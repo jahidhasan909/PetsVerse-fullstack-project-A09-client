@@ -20,7 +20,7 @@ const AllpetsMotion = ({ pets }) => {
 
     useEffect(() => {
         fetch(
-            `http://localhost:8000/allpets?search=${search}&species=${species}`
+            `https://pets-verse-fullstack-project-a09-se.vercel.app/allpets?search=${search}&species=${species}`
         )
             .then(res => res.json())
             .then(data => setAllPets(data));

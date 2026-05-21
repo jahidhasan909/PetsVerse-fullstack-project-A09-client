@@ -31,7 +31,7 @@ function AppendDots() {
 
     const [featuredData, setFeaturedData] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:8000/allpets`)
+        fetch(`https://pets-verse-fullstack-project-a09-se.vercel.app/allpets`)
             .then(res => res.json())
             .then(data => setFeaturedData(data.slice(0, 6)))
     }, [])

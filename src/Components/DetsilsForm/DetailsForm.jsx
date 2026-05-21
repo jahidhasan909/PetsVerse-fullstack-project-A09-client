@@ -88,7 +88,7 @@ const DetailsForm = ({ expectedPets }) => {
 
 
 
-        const res = await fetch('http://localhost:8000/adopt', {
+        const res = await fetch('https://pets-verse-fullstack-project-a09-se.vercel.app/adopt', {
 
             method: "POST",
             headers: {
@@ -107,7 +107,7 @@ const DetailsForm = ({ expectedPets }) => {
 
         const respatch = await fetch(
 
-            `http://localhost:8000/allpets/${expectedPets?._id}`,
+            `https://pets-verse-fullstack-project-a09-se.vercel.app/allpets/${expectedPets?._id}`,
 
             {
 

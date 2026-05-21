@@ -36,7 +36,7 @@ const EditModal = ({ ownpets }) => {
         const formData = new FormData(e.currentTarget)
         const newEditPetDetails = Object.fromEntries(formData.entries())
         const { data: tokenData } = await authClient.token()
-        const res = await fetch(`http://localhost:8000/ownpetslisting/${_id}`, {
+        const res = await fetch(`https://pets-verse-fullstack-project-a09-se.vercel.app/ownpetslisting/${_id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

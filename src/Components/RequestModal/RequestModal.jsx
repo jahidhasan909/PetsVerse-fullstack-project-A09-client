@@ -15,7 +15,7 @@ export function RequestModal({ _id }) {
         try {
 
             const res = await fetch(
-                `http://localhost:8000/adopt/${requestId}`,
+                `https://pets-verse-fullstack-project-a09-se.vercel.app/adopt/${requestId}`,
                 {
                     method: "PATCH",
                     headers: {
@@ -76,7 +76,7 @@ export function RequestModal({ _id }) {
             // console.log("petsId:", _id);
             const { data: tokenData } = await authClient.token()
             const res = await fetch(
-                `http://localhost:8000/adopt/${_id}`, {
+                `https://pets-verse-fullstack-project-a09-se.vercel.app/adopt/${_id}`, {
                 headers: {
                     'content-type': 'application/json',
                     authorization: `Bearar ${tokenData?.token}`

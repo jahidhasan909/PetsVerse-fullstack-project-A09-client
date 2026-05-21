@@ -20,7 +20,7 @@ const MyListingPage = async () => {
     })
 
 
-    const res = await fetch(`http://localhost:8000/ownpetslisting/${user?.id}`, {
+    const res = await fetch(`https://pets-verse-fullstack-project-a09-se.vercel.app/ownpetslisting/${user?.id}`, {
         headers: {
             authorization: `Barear ${token?.token}`
         }

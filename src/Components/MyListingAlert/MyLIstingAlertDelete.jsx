@@ -14,7 +14,7 @@ const MyListingAlertDeletd = ({ ownpets }) => {
 
     const handleDelete = async () => {
         const { data: tokenData } = await authClient.token()
-        const res = await fetch(`http://localhost:8000/ownpetslisting/${ownpets?._id}`, {
+        const res = await fetch(`https://pets-verse-fullstack-project-a09-se.vercel.app/ownpetslisting/${ownpets?._id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
