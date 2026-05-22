@@ -162,7 +162,7 @@ export function Navbar() {
                                         </Dropdown.Menu>
                                     </Dropdown.Popover>
                                 </Dropdown>
-                            </ul> : <li><Link className={'no-underline py-3 px-5 text-[#D97706] rounded-full bg-white/30 backdrop-blur-3xl border border-white/30'} href="/login">Log In</Link></li>
+                            </ul> : <li><Link className={'no-underline py-3 px-5 text-[#d97706ec] font-bold uppercase rounded-full bg-white/20 backdrop-blur-3xl border border-white/30'} href="/login">Log In</Link></li>
                         }
 
 

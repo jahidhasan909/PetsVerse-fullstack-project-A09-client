@@ -82,6 +82,10 @@ const DetailsPage = async ({ params }) => {
                                         {expectedPets?.description}
                                     </p>
 
+                                    <div className="">
+                                        <span className='font-semibold text-xl'>${expectedPets?.adoptionFee}</span> <span className='text-gray-500'>/ Adoption Fee</span>
+                                    </div>
+
                                     <div className="flex flex-wrap items-center gap-3 mt-4">
 
                                         <Chip
@@ -108,15 +112,7 @@ const DetailsPage = async ({ params }) => {
                                     </div>
                                 </div>
 
-                                <div className="text-right">
-                                    <p className="text-gray-500 text-sm">
-                                        Adoption Fee
-                                    </p>
 
-                                    <h2 className="text-3xl font-bold">
-                                        ${expectedPets?.adoptionFee}
-                                    </h2>
-                                </div>
                             </div>
 
 

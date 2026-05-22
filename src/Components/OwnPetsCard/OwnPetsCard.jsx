@@ -35,7 +35,7 @@ const OwnPetsCard = ({ ownpets }) => {
                         <Card.Title className='text-[1.25rem]'>{ownpets?.petName}</Card.Title>
                         <Card.Description className='text-gray-500 flex truncate'>{ownpets?.breed} <IconPoint stroke={2} /> {ownpets?.age} <IconPoint stroke={2} /> {ownpets?.gender} </Card.Description>
                         <span className="flex items-center gap-1 text-sm"><LocationArrow></LocationArrow> {ownpets?.location}</span>
-                        <h3 className='text-[1.10rem]'>${ownpets?.adoptionFee}/Adoption Fee</h3>
+                        <h3 className='text-[1.10rem]'><span className='font-semibold'>${ownpets?.adoptionFee}</span> <span className='text-gray-500'>/ Adoption Fee</span></h3>
 
 
 
