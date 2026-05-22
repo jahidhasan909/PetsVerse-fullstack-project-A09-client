@@ -52,9 +52,9 @@ const MyListingPage = async () => {
                 </Card>
             </div>
 
-            <div className='grid grid-cols-1 lg:grid-cols-4 gap-4'>
+           
                 <MotionOwnPets ownListingpets={ownListingpets}></MotionOwnPets>
-            </div>
+          
 
 
         </div>

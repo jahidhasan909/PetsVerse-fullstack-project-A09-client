@@ -37,7 +37,7 @@ export default function DeshBoardRootLayout({ children }) {
 
         <div className="flex-1 flex-col min-h-screen">
 
-          <div className="bg-[#282828] hidden md:flex justify-end  h-20 items-center px-5">
+          <div className="bg-[#282828] hidden lg:flex justify-end  h-20 items-center px-5">
             <SidebarNav></SidebarNav>
           </div>
 

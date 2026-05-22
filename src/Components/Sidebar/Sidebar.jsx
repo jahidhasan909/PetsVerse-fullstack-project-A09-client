@@ -17,6 +17,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { authClient } from "@/lib/auth-client";
+import { ChevronLeft } from "@gravity-ui/icons";
 
 const navItems = [
     {
@@ -89,6 +90,7 @@ const Sidebar = () => {
                     <div className="h-20 flex items-center justify-between px-6 border-b border-white/10">
                         <Link href="/" className="no-underline">
                             <div className="flex items-center gap-2">
+                               
                                 <Image
                                     src="https://i.ibb.co.com/Ldd9yZMf/pets-1-removebg-preview.png"
                                     height={50}
@@ -96,14 +98,13 @@ const Sidebar = () => {
                                     className="h-[36px] w-auto"
                                     alt="logo"
                                 />
-
                                 <h1 className="uppercase pt-1 text-white text-2xl font-bold">
                                     PetsVerse
                                 </h1>
                             </div>
                         </Link>
 
-                        
+
                     </div>
 
 
@@ -121,8 +122,8 @@ const Sidebar = () => {
                                         }
                                     }}
                                     className={`flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-200 no-underline ${pathname === item.href
-                                            ? "bg-white text-black"
-                                            : "text-neutral-400 hover:bg-white/10 hover:text-white"
+                                        ? "bg-white text-black"
+                                        : "text-neutral-400 hover:bg-white/10 hover:text-white"
                                         }`}
                                 >
                                     <Icon size={20} />

@@ -4,7 +4,7 @@ import OwnPetsCard from './OwnPetsCard';
 
 const MotionOwnPets = ({ ownListingpets }) => {
     return (
-        <div>
+        <div className='grid grid-cols-1 lg:grid-cols-4 gap-4'>
             {
                 ownListingpets.map((ownpets, index) => <motion.div
                     initial={{ opacity: 0, y: 40 }}
