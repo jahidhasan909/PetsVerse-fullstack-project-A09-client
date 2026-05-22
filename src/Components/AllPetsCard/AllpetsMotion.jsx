@@ -34,10 +34,10 @@ const AllpetsMotion = ({ pets }) => {
 
 
             <div className='grid grid-cols-1 gap-1  md:flex  justify-between bg-[#FCF8F3] dark:bg-black border border-white/40 rounded-2xl p-4 my-7'>
-                <SearchField name="search">
-                    <SearchField.Group>
-                        <SearchField.SearchIcon />
-                        <SearchField.Input className="w-[280px]" placeholder="Search..." onChange={(e) => setSearch(e.target.value)} />
+                <SearchField name="search" className={'border border-[#D97706] rounded-xl'}>
+                    <SearchField.Group >
+                        <SearchField.SearchIcon className='text-[#D97706]'/>
+                        <SearchField.Input className="w-[280px] text-[#D97706]" placeholder="Search..." onChange={(e) => setSearch(e.target.value)} />
                         <SearchField.ClearButton />
                     </SearchField.Group>
                 </SearchField>

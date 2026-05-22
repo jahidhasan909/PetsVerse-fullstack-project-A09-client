@@ -11,7 +11,7 @@ import { motion } from 'framer-motion'
 
 const WhyAdoptPets = () => {
     return (
-        <div className='my-27 max-w-11/13  mx-auto'>
+        <div className='my-27 max-w-11/12  mx-auto'>
             <h1 className='text-center text-3xl font-bold'>Why Adopt Pets</h1>
             <p className='text-center text-[1.05rem] text-gray-500 py-2'>Adopting a pet saves a life and gives you a loyal  companion filled with love, <br /> happiness, and care.</p>
 

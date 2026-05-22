@@ -102,7 +102,21 @@ const DeshBoardHomePage = async () => {
                                         ).toLocaleDateString()}
                                     </td>
 
-                                    <p className="absolute top-0 right-0 p-2 text-md">{apotpets?.status === 'Available' ? <Chip className='text-green-500' color="success">{apotpets?.status}</Chip> : apotpets?.status === 'panding' ? <Chip className="text-orange-400" color="warning">{apotpets?.status}</Chip> : <Chip color="success">{apotpets?.status}</Chip>}</p>
+                                    <td className="px-5 py-4">
+                                        {apotpets?.status === 'approved' ? (
+                                            <Chip className='text-green-500' color="success">
+                                                {apotpets?.status}
+                                            </Chip>
+                                        ) : apotpets?.status === 'pending' ? (
+                                            <Chip className="text-orange-400" color="warning">
+                                                {apotpets?.status}
+                                            </Chip>
+                                        ) : (
+                                            <Chip className="text-red-400" color="danger">
+                                                {apotpets?.status}
+                                            </Chip>
+                                        )}
+                                    </td>
 
                                     <td className="px-5 py-4">
                                         <div className="flex gap-2">

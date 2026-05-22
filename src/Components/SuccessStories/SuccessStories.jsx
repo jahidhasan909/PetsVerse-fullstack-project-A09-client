@@ -14,7 +14,7 @@ const SuccessStories = () => {
 
 
     return (
-        <div className='max-w-5xl mx-auto my-27 text-center'>
+        <div className='max-w-11/12 mx-auto my-27 text-center'>
             <h1 className='text-3xl font-bold'>Success Stories</h1>
             <p className='pt-2 pb-4 text-gray-500 text-[0.95rem]'>Thanks to our amazing community, many pets have found loving homes. These numbers and moments <br /> reflect the happiness of pets  and families coming together.</p>
 

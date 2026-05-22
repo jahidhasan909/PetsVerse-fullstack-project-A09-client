@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const PetCareTips = () => {
     return (
-        <div className='my-27 max-w-6xl mx-auto bg-white/50 border-white/50 rounded-2xl p-8'>
+        <div className='my-27 max-w-11/12 mx-auto bg-white/50 border-white/50 rounded-2xl p-8'>
             <h1 className='text-center text-3xl font-bold'>Pet Care Tips</h1>
             <p className='text-center pt-2 pb-4 text-gray-500 text-[0.95rem]'>Simple tips to keep your pets happy, healthy, and well cared for.</p>
 
