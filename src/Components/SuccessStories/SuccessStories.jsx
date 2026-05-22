@@ -14,7 +14,7 @@ const SuccessStories = () => {
 
 
     return (
-        <div className='max-w-11/12 mx-auto my-27 text-center'>
+        <div className='max-w-11/13 mx-auto my-27 text-center'>
             <h1 className='text-3xl font-bold'>Success Stories</h1>
             <p className='pt-2 pb-4 text-gray-500 text-[0.95rem]'>Thanks to our amazing community, many pets have found loving homes. These numbers and moments <br /> reflect the happiness of pets  and families coming together.</p>
 
@@ -50,7 +50,7 @@ const SuccessStories = () => {
                 <MomentSlider></MomentSlider>
                 <Card className='flex justify-center bg-[#FCF8F3] dark:bg-black border border-white/40'>
                     <h1 className='text-xl font-semibold'>Happy Families</h1>
-                    <p className='text-gray-500 p-2'>Every adoption creates a beautiful bond between pets and their new families. These moments remind us why adoption matters.</p>
+                    <p className='text-gray-500 p-2'>very adoption builds a loving bond between pets and families.</p>
                 </Card>
             </motion.div>
 

@@ -5,7 +5,7 @@ import Marquee from "react-fast-marquee";
 
 const PawsitiveReviews = () => {
     return (
-        <div className=" max-w-11/12 mx-auto my-27">
+        <div className=" max-w-11/13 mx-auto my-27">
             <h1 className="text-center text-3xl font-bold">Pawsitive Reviews</h1>
             <p className="text-center pt-3 pb-4 text-gray-500 text-[0.95rem]">Pet owners share their journey and experience with our platform.</p>
 

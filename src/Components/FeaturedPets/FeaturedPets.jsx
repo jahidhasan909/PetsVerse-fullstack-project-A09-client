@@ -109,7 +109,27 @@ function AppendDots() {
                         key={petsinfo._id} className=" md:max-w-xl pr-4 mb-7 mt-4 relative overflow-hidden">
                         <Card variant="" className={'rounded-md  bg-[#FCF8F3] dark:bg-black border-white/30 border'}>
                             <Image src={petsinfo?.imageUrl} className='w-full object-cover relative overflow-hidden rounded-md h-[230px]' height={230} width={250} alt={petsinfo?.petName}></Image>
-                            <p className=" absolute p-2 text-md">{petsinfo?.status === 'Available' ? <Chip color="success">{petsinfo?.status}</Chip> : petsinfo?.status === 'panding' ? <Chip color="warning">{petsinfo?.status}</Chip> : <Chip color="success">{petsinfo?.status}</Chip>}</p>
+
+
+
+                            <p className=" absolute p-2 text-md"> {petsinfo?.status === 'approved' ? (
+                                <Chip className='text-green-500' color="success">
+                                    {petsinfo?.status}
+                                </Chip>
+                            ) : petsinfo?.status === 'pending' ? (
+                                <Chip className="text-orange-400" color="warning">
+                                    {petsinfo?.status}
+                                </Chip>
+                            ) : (
+                                <Chip className="text-green-500" color="success">
+                                    {petsinfo?.status}
+                                </Chip>
+                            )}</p>
+
+
+
+
+
                             <Card.Header className='p-2'>
                                 <div className=' space-y-2'>
                                     <Card.Title className='text-[1.25rem]'>{petsinfo?.petName}</Card.Title>

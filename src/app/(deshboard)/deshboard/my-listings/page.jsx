@@ -1,3 +1,4 @@
+import MotionOwnPets from '@/Components/OwnPetsCard/MotionOwnPets';
 import OwnPetsCard from '@/Components/OwnPetsCard/OwnPetsCard';
 import { auth } from '@/lib/auth';
 import { Card } from '@heroui/react';
@@ -46,15 +47,13 @@ const MyListingPage = async () => {
                 </Card>
                 <Card className='bg-[#FCF8F3] dark:bg-black border border-white/40 text-center'>
                     <p className='font-semibold text-lg text-red-400'>{ownListingpets.filter(ownstatus => ownstatus.status === 'adopted').length}</p>
-                   
+
                     <span className='text-gray-500'>Adopted</span>
                 </Card>
             </div>
 
             <div className='grid grid-cols-1 lg:grid-cols-4 gap-4'>
-                {
-                    ownListingpets.map(ownpets => <OwnPetsCard key={ownpets._id} ownpets={ownpets}></OwnPetsCard>)
-                }
+                <MotionOwnPets ownListingpets={ownListingpets}></MotionOwnPets>
             </div>
 
 
