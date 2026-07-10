@@ -1,5 +1,5 @@
 
-* * PETSVERSE - Pet Adoption Platform :
+* * * PETSVERSE - Pet Adoption Platform :
 PETSVERSE হলো একটি Full Stack Pet Adoption Platform যেখানে User বিভিন্ন Pets দেখতে, Adoption Request পাঠাতে এবং নিজের Request Manage করতে পারে।
 এই Project টি MERN Stack ব্যবহার করে তৈরি করা হয়েছে।
 
