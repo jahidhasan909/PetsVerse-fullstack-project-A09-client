@@ -29,9 +29,6 @@ PETSVERSE হলো একটি Full Stack Pet Adoption Platform যেখা�
 
 
 
-
-
-
 * * * Technology Used :
 * Frontend
 1. Next.js 16
